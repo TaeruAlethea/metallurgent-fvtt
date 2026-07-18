@@ -1,0 +1,9 @@
+{
+	"Actor": {},
+	"Item": {
+		"types":[
+			"anvlCore",
+			"anvlMobilityBase"
+		]
+	}
+}

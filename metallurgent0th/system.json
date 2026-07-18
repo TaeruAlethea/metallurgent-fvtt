@@ -1,0 +1,38 @@
+{
+  "id": "metallurgent0th",
+  "title": "Metallurgent Zero Edition",
+  "description": "tbd",
+  "version": "0.0.1",
+  "compatibility": {
+    "minimum": 14,
+    "verified": 14
+  },
+  "authors": [
+    {
+      "name": "C.M. Little",
+      "url": "www.metallurgent.net/"
+    },
+    {
+      "name": "N. A. Sprinkle",
+      "url": "www.metallurgent.net/"},
+    {
+    "name": "TaeruAlethea",
+    "url": "https://github.com/TaeruAlethea/metallurgent-fvtt",
+    "discord": "To be Added"
+  }],
+  "esmodules": ["metallurgent-system.mjs"],
+  "styles": ["metallurgent.css"],
+  "packs": [
+    
+  ],
+  "languages": [{
+    "lang": "en",
+    "name": "English",
+    "path": "lang/en.json"
+  }],
+  "initiative": "@initiative",
+  "grid":{
+    "distance": 30,
+    "units": "m"
+  }
+}
