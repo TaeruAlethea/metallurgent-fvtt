@@ -9,7 +9,6 @@
 
   outputs =
     inputs@{
-      # self,
       ...
     }:
     inputs.flake-parts.lib.mkFlake { inherit inputs; } {
@@ -17,37 +16,28 @@
       perSystem =
         {
           pkgs,
-          # lib,
-          # system,
-          # config,
           ...
         }:
         {
-          # _module.args.pkgs = import self.inputs.nixpkgs {
-          #   inherit system;
-          #   config.allowUnfreePredicate =
-          #     pkg:
-          #     builtins.elem (lib.getName pkg) [
-          #     ];
-          # };
-
           devShells = {
             default = pkgs.mkShell {
               nativeBuildInputs = with pkgs; [
+                #Tooling
                 nodejs-slim
                 lessc
+
+                #Language Servers
                 typescript-language-server
+                superhtml
+
+                #Formatters
                 prettier
               ];
-              # env = {
-              #   DOTNET_BIN = "${pkgs.dotnetCorePackages.sdk_10_0}/bin/dotnet";
-              # };
             };
           };
 
           packages = {
             default = inputs.foundryvtt.packages.${pkgs.system}.foundryvtt_12;
-
           };
         };
     };
