@@ -1,3 +1,8 @@
 [[language]]
 name = "html"
 file-types = [ "html", "hbs" ]
+
+[[language]]
+name = "javascript"
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+auto-format = true

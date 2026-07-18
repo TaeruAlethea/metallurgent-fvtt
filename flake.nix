@@ -37,6 +37,7 @@
                 nodejs-slim
                 lessc
                 typescript-language-server
+                prettier
               ];
               # env = {
               #   DOTNET_BIN = "${pkgs.dotnetCorePackages.sdk_10_0}/bin/dotnet";
