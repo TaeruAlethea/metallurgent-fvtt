@@ -28,16 +28,21 @@
 
                 #Language Servers
                 typescript-language-server
+                vscode-css-languageserver
                 superhtml
 
                 #Formatters
                 prettier
               ];
+
+              shellHook = ''
+              		alias LessCompile="lessc ./metallurgent0th/less/metallurgent.less ./metallurgent0th/metallurgent.css"
+              	'';
             };
           };
 
           packages = {
-            default = inputs.foundryvtt.packages.${pkgs.system}.foundryvtt_12;
+            default = inputs.foundryvtt.packages.${pkgs.system}.foundryvtt_14;
           };
         };
     };
