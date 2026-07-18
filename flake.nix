@@ -36,6 +36,7 @@
               nativeBuildInputs = with pkgs; [
                 nodejs-slim
                 lessc
+                typescript-language-server
               ];
               # env = {
               #   DOTNET_BIN = "${pkgs.dotnetCorePackages.sdk_10_0}/bin/dotnet";
