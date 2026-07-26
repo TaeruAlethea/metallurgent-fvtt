@@ -42,21 +42,20 @@
               		alias LessCompile="lessc ./metallurgent0th/less/metallurgent.less ./metallurgent0th/metallurgent.css"
 
               		cat << EOF > jsconfig.json
-              		{
-									  "compilerOptions": {
-									    "module": "ES2022",
-									    "target": "ES2022",
-									    "paths": {
-									      "@client/*": ["${foundryPath}/lib/node_modules/foundryvtt/client/*"],
-									      "@common/*": ["${foundryPath}/lib/node_modules/foundryvtt/common/*"]
-									    }
-									  },
-									  "exclude": ["node_modules", "**/node_modules/*"],
-									  "include": ["**/metallurgent-system.mjs", "${foundryPath}/lib/node_modules/foundryvtt/*"],
-									  "typeAcquisition": {
-									    "include": ["jquery"]
-									  }
-									}
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "esnext",
+    "paths": {
+      "@client/*": ["${foundryPath}/lib/node_modules/foundryvtt/client/*"],
+      "@common/*": ["${foundryPath}/lib/node_modules/foundryvtt/common/*"]
+    }
+  },
+  "include": ["metallurgent0th", "${foundryPath}/lib/node_modules/foundryvtt/*"],
+  "typeAcquisition": {
+    "include": ["jquery"]
+  }
+}
               	'';
             };
           };
