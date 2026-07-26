@@ -1,0 +1,88 @@
+{
+	"METALLURGENT":{
+		"systemName": "Metallurgent",
+		"stats":{
+			"armorPoints": "AP",
+			"armorPointsLong": "Armor Points",
+			"resistance": "Resistance",
+			"resistances":{
+ 				"kenetic": "KE",
+				"keneticLong": "Kenetic Energy",
+				"chemical": "CE",
+				"chemicalLong":"Chemical Energy",
+				"thermal": "TE",
+				"thermalLong": "Thermal Energy"
+			},
+			"load": "Load",
+			"energyDrain": "EN Drain",
+			"energyDrainLong": "Energy Drain",
+			"blockBonus": "Block Bonus",
+			"blockCost": "Block Cost",
+			"defenceValue": "Defence Value",
+			"criticalOutput": "Critical Output",
+			"hardpoints": "Hardpoints",
+			"dodgeBonus": "Dodge Bonus",
+			"dodgeCost": "Dodge Cost",
+			"speed": "Speed",
+			"manoeuvreCost": "Manoeuvre Cost",
+			"initiative": "Initiative",
+			"chassisType": "ChassisType",
+			"Component Cost": "Component Cost",
+			"Description": "Description"
+		},
+		"anvil":{
+			"anvil": "ANVL",
+			"anvilLong": "Anvil",
+			"anvilComponent": "Anvil Component",
+			"componentPlural": "Components",
+			"components": {
+				"core": "Core",
+				"mobilityBase": "Mobility Base",
+				"armLeft": "Left Arm",
+				"armRight": "Right Arm",
+				"generator": "Generator",
+				"electronics": "Electronics",
+				"fireControl": "Fire Control"
+			},
+			"mobilityBaseTypes": {
+				"biped": "Biped",
+				"hover": "Hover",
+				"quadruped": "Quadruped",
+				"reverseJoint": "Reverse-Joint",
+				"tracked": "Tracked",
+				"wheeled": "Wheeled"
+			},
+			"coolingTypes": {
+				"gas": "Brap",
+				"liquid": "Liquid",
+				"plasma": "Plasma"
+			},
+			"hardwareTypes": {
+				"efficient": "Efficient",
+				"gunheadKE": "Gunhead [KE]",
+				"gunheadCE": "Gunhead [CE]",
+				"gunheadTE": "Gunhead [TE]",
+				"hardened": "Hardened",
+				"lowProfile": "Low Profile",
+				"multiEye": "Multi-Eye",
+				"networkSiphon": "Network Syphon",
+				"quicklock": "Quicklock",
+				"rangefinder": "Rangefinder"
+			}
+		},
+		"general":{
+			"details": "Details",
+			"1st": "1st",
+			"2nd": "2nd",
+			"3rd": "3rd",
+			"4th": "4th",
+			"5th": "5th",
+			"costUnit": "Cost per Unit",
+			"costBulk": "Cost per Mag",
+			"description": "Description",
+			"origin": "Origin",
+			"manufacturer": "Manufacturer",
+			"introductionYear": "Introduction Year"
+		}
+	}
+}

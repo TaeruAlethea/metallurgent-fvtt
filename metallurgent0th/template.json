@@ -3,7 +3,11 @@
 	"Item": {
 		"types":[
 			"anvlCore",
-			"anvlMobilityBase"
+			"anvlMobilityBase",
+			"anvlArmLeft",
+			"anvlArmRight",
+			"anvlGenerator",
+			"anvlElectronics"
 		]
 	}
 }

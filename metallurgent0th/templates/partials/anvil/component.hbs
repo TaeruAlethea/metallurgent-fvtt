@@ -1,0 +1,26 @@
+<div>
+  <label> {{item.name}} </label>
+  <label> {{localize "METALLURGENT.stats.load"}}: {{system.load}} </label>
+  <label>
+    {{localize "METALLURGENT.stats.energyDrain"}}: {{system.energyDrain}}
+  </label>
+  <label>
+    {{localize "METALLURGENT.stats.armorPoints"}}: {{system.armorPoints}}
+  </label>
+  <label>
+    {{localize "METALLURGENT.stats.resistances.kenetic"}}:
+    {{system.resistance.kenetic}}
+  </label>
+  <label>
+    {{localize "METALLURGENT.stats.resistances.chemical"}}:
+    {{system.resistance.chemical}}
+  </label>
+  <label>
+    {{localize "METALLURGENT.stats.resistances.thermal"}}:
+    {{system.resistance.thermal}}
+  </label>
+  <div>
+    {{> (concat "systems/metallurgent0th/templates/partials/anvil/"
+    system.componentType ".hbs") }}
+  </div>
+</div>

@@ -20,7 +20,7 @@
     "url": "https://github.com/TaeruAlethea/metallurgent-fvtt",
     "discord": "To be Added"
   }],
-  "esmodules": ["metallurgent-system.mjs"],
+  "esmodules": ["mu.mjs"],
   "styles": ["metallurgent.css"],
   "packs": [
     
@@ -34,5 +34,11 @@
   "grid":{
     "distance": 30,
     "units": "m"
+  },
+  "flags": {
+  	"hotReload":{
+  		"extensions": ["css","html","hbs","json"],
+  		"paths": ["metallurgent.css", "templates","lang"]
+  	}
   }
 }
