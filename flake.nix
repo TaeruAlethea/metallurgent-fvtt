@@ -21,43 +21,53 @@
         {
           devShells = {
             default =
-            let
-            	foundryPath = inputs.foundryvtt.packages.${pkgs.system}.foundryvtt_14;           in
-            pkgs.mkShell {
-              nativeBuildInputs = with pkgs; [
-                #Tooling
-                nodejs-slim
-                lessc
+              let
+                foundryPath = inputs.foundryvtt.packages.${pkgs.system}.foundryvtt_14;
+                foundryModulePath = "${foundryPath}/lib/node_modules/foundryvtt";
+              in
+              pkgs.mkShell {
+                nativeBuildInputs = with pkgs; [
+                  #Tooling
+                  nodejs-slim
+                  lessc
+                  jsdoc
+                  eslint
 
-                #Language Servers
-                typescript-language-server
-                vscode-css-languageserver
-                superhtml
+                  #Language Servers
+                  typescript-language-server
+                  vscode-css-languageserver
+                  superhtml
 
-                #Formatters
-                prettier
-              ];
+                  #Formatters
+                  prettier
+                ];
 
-              shellHook = ''
-              		alias LessCompile="lessc ./metallurgent0th/less/metallurgent.less ./metallurgent0th/metallurgent.css"
+                shellHook = ''
+                                		alias LessCompile="lessc ./metallurgent0th/less/metallurgent.less ./metallurgent0th/metallurgent.css"
 
-              		cat << EOF > jsconfig.json
-{
-  "compilerOptions": {
-    "module": "esnext",
-    "target": "esnext",
-    "paths": {
-      "@client/*": ["${foundryPath}/lib/node_modules/foundryvtt/client/*"],
-      "@common/*": ["${foundryPath}/lib/node_modules/foundryvtt/common/*"]
-    }
-  },
-  "include": ["metallurgent0th", "${foundryPath}/lib/node_modules/foundryvtt/*"],
-  "typeAcquisition": {
-    "include": ["jquery"]
-  }
-}
-              	'';
-            };
+                                		cat << EOF > jsconfig.json
+                  {
+                    "compilerOptions": {
+                      "module": "ESNext",
+                      "target": "ESNext",
+                      "paths": {
+                        "@client/*": ["${foundryModulePath}/client/*"],
+                        "@common/*": ["${foundryModulePath}/common/*"]
+                      }
+                    },
+                    "exclude": ["node_modules", "**/node_modules/*"],
+                    "include": [
+                    	"metallurgent0th",
+                    	"${foundryModulePath}/client.mjs",
+                    	"${foundryModulePath}/client/global.d.mts",
+                    	"${foundryModulePath}/common/global.d.mts"
+                    ],
+                    "typeAcquisition": {
+                      "include": ["jquery"]
+                    }
+                  }
+                                	'';
+              };
           };
 
           packages = {
