@@ -1,3 +1,5 @@
 foundry/*
 .tsvoid
 out
+tsconfig.json
+jsconfig.json
