@@ -2,6 +2,7 @@
   "id": "metallurgent0th",
   "title": "Metallurgent Zero Edition",
   "description": "tbd",
+  "type": "system",
   "version": "0.0.1",
   "compatibility": {
     "minimum": 14,
@@ -32,6 +33,7 @@
   }],
   "initiative": "@initiative",
   "grid":{
+  	"type": 4,
     "distance": 30,
     "units": "m"
   },
