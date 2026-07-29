@@ -4,6 +4,11 @@ file-types = [ "hbs" ]
 formatter = { command = 'prettier', args = ["--parser", "html"] }
 
 [[language]]
+name = "typescript"
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+auto-format = true
+
+[[language]]
 name = "javascript"
 formatter = { command = 'prettier', args = ["--parser", "typescript"] }
 auto-format = true

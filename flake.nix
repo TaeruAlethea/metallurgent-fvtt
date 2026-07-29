@@ -34,6 +34,7 @@
                   eslint
 
                   #Language Servers
+                  typescript
                   typescript-language-server
                   vscode-css-languageserver
                   superhtml
@@ -43,30 +44,48 @@
                 ];
 
                 shellHook = ''
-                                		alias LessCompile="lessc ./metallurgent0th/less/metallurgent.less ./metallurgent0th/metallurgent.css"
+                	mkdir -p ./foundry
+									ln -s -f "${foundryModulePath}/tsconfig.json" "./foundry"
+									ln -s -f "${foundryModulePath}/client" "./foundry"
+									ln -s -f "${foundryModulePath}/common" "./foundry"
+									ln -s -f "${foundryModulePath}/public/lang" "./foundry"
+									
+	            		alias LessCompile="lessc ./metallurgent0th/less/metallurgent.less ./metallurgent0th/metallurgent.css"
 
-                                		cat << EOF > jsconfig.json
+              		cat << EOF > tsconfig.json
                   {
                     "compilerOptions": {
-                      "module": "ESNext",
-                      "target": "ESNext",
+											// Cargo Cult for Typescript
+											"declaration": true,
+											"emitDeclarationOnly": true,
+											"outDir": "../.tsvoid"
+											"composite": true,
+
+											// Actual Config
+                      "target": "esnext",
+                      "lib": ["dom", "esnext"],
+                      "allowJs": true,
+                      "checkJs": true,
+                      "moduleResolution": "bundler",
+                      "esModuleInterop": true,
+                      "strict": true,
+                      "skipLibCheck": true,
                       "paths": {
-                        "@client/*": ["${foundryModulePath}/client/*"],
-                        "@common/*": ["${foundryModulePath}/common/*"]
+                        "@client/*": ["./foundry/client/*"],
+                        "@common/*": ["./foundry/common/*"]
                       }
-                    },
-                    "exclude": ["node_modules", "**/node_modules/*"],
+                  	},
+                    "exclude": ["**/node_modules/*", "**/dist/*"],
                     "include": [
-                    	"metallurgent0th",
-                    	"${foundryModulePath}/client.mjs",
-                    	"${foundryModulePath}/client/global.d.mts",
-                    	"${foundryModulePath}/common/global.d.mts"
+                    	"**/*.mjs",
+                    	"**/*.d.ts",
+                    	"./foundry/client/client.mjs",
                     ],
                     "typeAcquisition": {
                       "include": ["jquery"]
                     }
                   }
-                                	'';
+              	'';
               };
           };
 
