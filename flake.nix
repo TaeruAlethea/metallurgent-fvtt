@@ -58,7 +58,7 @@
 											// Cargo Cult for Typescript
 											"declaration": true,
 											"emitDeclarationOnly": true,
-											"outDir": "../.tsvoid"
+											"outDir": ".tsvoid",
 											"composite": true,
 
 											// Actual Config
@@ -77,13 +77,17 @@
                   	},
                     "exclude": ["**/node_modules/*", "**/dist/*"],
                     "include": [
-                    	"**/*.mjs",
-                    	"**/*.d.ts",
+                    	"./metallurgent0th/**/*.mjs",
+                    	"./metallurgent0th/**/*.d.ts",
                     	"./foundry/client/client.mjs",
+                    	"./foundry/**/*.d.mts"
                     ],
                     "typeAcquisition": {
                       "include": ["jquery"]
-                    }
+                    },
+                    "references": [{
+                    	"path": "./foundry"
+                    }]
                   }
               	'';
               };
