@@ -19,7 +19,7 @@ export default class muItemBaseModel extends muSystemModel {
 
   /** @inheritdoc */
   static defineSchema() {
-    const schema = super.defineSchema();
+    var schema = super.defineSchema();
 
     const details = {
       costUnit: new fields.NumberField({

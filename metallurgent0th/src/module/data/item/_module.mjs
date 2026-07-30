@@ -7,7 +7,7 @@ import {
   anvlGeneratorModel as anvlGeneratorModel,
   anvlElectronicsModel as anvlElectronicsModel,
 } from "./anvil.mjs";
-import { default as itemBaseModel } from "./itemBase.mjs";
+import { default as muItemBaseModel } from "./itemBase.mjs";
 
 const config = {
   component: anvlComponentModel,
@@ -27,6 +27,6 @@ export {
   anvlArmRightModel,
   anvlGeneratorModel,
   anvlElectronicsModel,
-  itemBaseModel,
+  muItemBaseModel,
   config,
 };
