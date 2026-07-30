@@ -7,3 +7,6 @@ jsconfig.json
 
 # Node Modules
 node_modules/
+
+
+**/*.map
