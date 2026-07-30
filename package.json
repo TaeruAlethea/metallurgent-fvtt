@@ -1,0 +1,44 @@
+{
+  "name": "metallurgent-fvtt",
+  "private": true,
+  "version": "0.0.1",
+  "description": "",
+  "homepage": "https://github.com/TaeruAlethea/metallurgent-fvtt#readme",
+  "bugs": {
+    "url": "https://github.com/TaeruAlethea/metallurgent-fvtt/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TaeruAlethea/metallurgent-fvtt.git"
+  },
+  "license": "MIT",
+  "author": "",
+  "main": "metallurgent0th/mu.mjs",
+  "types": "./metallurgent0th/mu.d.ts",
+  "lint-staged": {
+    "*.{mjs,js}": "eslint --quiet --fix",
+    "*.d.ts": "eslint --quiet --fix",
+    "*.json": "dprint fmt --allow-no-files",
+    "*.css": "dprint fmt",
+    "*.md": "dprint fmt"
+  },
+  "devDependencies": {
+    "@eslint/css": "^1.4.0",
+    "@eslint/js": "^10.0.1",
+    "@eslint/json": "^2.0.1",
+    "@eslint/markdown": "^8.0.3",
+    "dprint": "^0.55.2",
+    "eslint": "^10.8.0",
+    "globals": "^17.8.0",
+    "less": "^4.8.1",
+    "prettier": "^3.9.6",
+    "typedoc": "^0.28.20",
+    "typedoc-plugin-missing-exports": "^4.1.4",
+    "typescript-eslint": "^8.65.0"
+  },
+  "scripts": {
+    "build:docs": "typedoc",
+    "lint": "eslint ./metallurgent0th/mu.mjs ./metallurgent0th/src/module/**/* ./metallurgent0th/templates/**/*",
+    "lint:fix": "eslint --fix ./metallurgent0th/mu.mjs ./metallurgent0th/src/module/**/* ./metallurgent0th/templates/**/*"
+  }
+}
