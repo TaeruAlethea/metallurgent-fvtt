@@ -37,6 +37,7 @@
     "typescript-eslint": "^8.65.0"
   },
   "scripts": {
+  	"build": "tsc --project ./metallurgent0th/",
     "build:docs": "typedoc",
     "lint": "eslint ./metallurgent0th/mu.mjs ./metallurgent0th/src/module/**/* ./metallurgent0th/templates/**/*",
     "lint:fix": "eslint --fix ./metallurgent0th/mu.mjs ./metallurgent0th/src/module/**/* ./metallurgent0th/templates/**/*"
