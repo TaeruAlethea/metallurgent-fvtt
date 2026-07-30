@@ -13,7 +13,7 @@ Hooks.once("init", () => {
 
   foundry.documents.collections.Items.registerSheet(
     "MU",
-    apps.Item.MUItemSheet,
+    apps.Item.muItemSheet,
     {
       makeDefault: true,
       label: "MU.Sheets.Labels.ItemSheet",
@@ -70,6 +70,12 @@ async function hitcheckCommand(command, match, chatData) {
   return false;
 }
 
+/**
+ * A function that roles a Hitcheck
+ * @param {number} [par=4] - The Par roll that needs to be met or beat
+ * @param {number} [qty=6] - The starting number of dice to roll
+ * @param {number} [burst=1] - How many over all attacks to execute
+ */
 async function hitcheck(par = 4, qty = 6, burst = 1) {
   console.debug(
     `metallurgent | Hit Check: Par: ${par}, Qty: ${qty}, Burst: ${burst}`,

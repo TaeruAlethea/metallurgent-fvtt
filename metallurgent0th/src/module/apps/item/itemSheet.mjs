@@ -6,8 +6,8 @@ const { api, sheets } = foundry.applications;
 /**
  * Extend the basic ItemSheet
  */
-export class MUItemSheet extends api.HandlebarsApplicationMixin(
-  sheets.ItemSheet,
+export class muItemSheet extends api.HandlebarsApplicationMixin(
+  sheets.ItemSheetV2,
 ) {
   /** @inheritdoc */
   static DEFAULT_OPTIONS = {

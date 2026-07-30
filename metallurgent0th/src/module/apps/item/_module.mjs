@@ -1,1 +1,1 @@
-export { MUItemSheet } from "./itemSheet.mjs";
+export { muItemSheet } from "./itemSheet.mjs";

@@ -1,9 +1,9 @@
-import metallurgentItemDataModel from "./base-item.mjs";
+import muItemBaseModel from "./itemBase.mjs";
 import { localizeMU } from "../../helpers/utils.mjs";
 
 const { NumberField, SchemaField, StringField } = foundry.data.fields;
 
-export class anvlComponentModel extends metallurgentItemDataModel {
+export class anvlComponentModel extends muItemBaseModel {
   static defineSchema() {
     return {
       ...super.defineSchema(),

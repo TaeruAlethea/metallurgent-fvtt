@@ -28,10 +28,7 @@
               pkgs.mkShell {
                 nativeBuildInputs = with pkgs; [
                   #Tooling
-                  nodejs-slim
-                  lessc
-                  jsdoc
-                  eslint
+                  nodejs
 
                   #Language Servers
                   typescript
@@ -41,55 +38,26 @@
 
                   #Formatters
                   prettier
+                  dprint
                 ];
 
                 shellHook = ''
-                	mkdir -p ./foundry
-									ln -s -f "${foundryModulePath}/tsconfig.json" "./foundry"
-									ln -s -f "${foundryModulePath}/client" "./foundry"
-									ln -s -f "${foundryModulePath}/common" "./foundry"
-									ln -s -f "${foundryModulePath}/public/lang" "./foundry"
-									
-	            		alias LessCompile="lessc ./metallurgent0th/less/metallurgent.less ./metallurgent0th/metallurgent.css"
-
-              		cat << EOF > tsconfig.json
-                  {
-                    "compilerOptions": {
-											// Cargo Cult for Typescript
-											"declaration": true,
-											"emitDeclarationOnly": true,
-											"outDir": ".tsvoid",
-											"composite": true,
-
-											// Actual Config
-                      "target": "esnext",
-                      "lib": ["dom", "esnext"],
-                      "allowJs": true,
-                      "checkJs": true,
-                      "moduleResolution": "bundler",
-                      "esModuleInterop": true,
-                      "strict": true,
-                      "skipLibCheck": true,
-                      "paths": {
-                        "@client/*": ["./foundry/client/*"],
-                        "@common/*": ["./foundry/common/*"]
-                      }
-                  	},
-                    "exclude": ["**/node_modules/*", "**/dist/*"],
-                    "include": [
-                    	"./metallurgent0th/**/*.mjs",
-                    	"./metallurgent0th/**/*.d.ts",
-                    	"./foundry/client/client.mjs",
-                    	"./foundry/**/*.d.mts"
-                    ],
-                    "typeAcquisition": {
-                      "include": ["jquery"]
-                    },
-                    "references": [{
-                    	"path": "./foundry"
-                    }]
-                  }
-              	'';
+									flake_store_root="${toString ./.}"
+									if repo_root="$( \
+									  2>/dev/null git rev-parse --show-toplevel \
+									)"; then
+									  flake_root="$repo_root"
+									else
+									  flake_root="$flake_store_root"
+									fi
+									export FLAKE_ROOT="$flake_root"
+                	
+                	mkdir -p $FLAKE_ROOT/foundry
+									ln -s -f "${foundryModulePath}/tsconfig.json" "$FLAKE_ROOT/foundry"
+									ln -s -f "${foundryModulePath}/client" "$FLAKE_ROOT/foundry"
+									ln -s -f "${foundryModulePath}/common" "$FLAKE_ROOT/foundry"
+									ln -s -f "${foundryModulePath}/public/lang" "$FLAKE_ROOT/foundry"
+									'';
               };
           };
 
