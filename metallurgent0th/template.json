@@ -1,5 +1,9 @@
 {
-	"Actor": {},
+	"Actor": {
+		"types":[
+			"anvil"
+		]
+	},
 	"Item": {
 		"types":[
 			"anvlCore",

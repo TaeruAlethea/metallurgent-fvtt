@@ -9,7 +9,17 @@ Hooks.once("init", () => {
   console.log("metallurgent | Initialising Metallurgent System");
 
   CONFIG.MU = MU;
+  Object.assign(CONFIG.Actor.dataModels, dataModels.Actor.config);
   Object.assign(CONFIG.Item.dataModels, dataModels.Item.config);
+
+  foundry.documents.collections.Actors.registerSheet(
+    "MU",
+    apps.Actor.muActorSheet,
+    {
+      makeDefault: true,
+      label: "MU.Sheets.Labels.ActorSheet",
+    },
+  );
 
   foundry.documents.collections.Items.registerSheet(
     "MU",

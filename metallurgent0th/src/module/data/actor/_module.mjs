@@ -1,5 +1,7 @@
-import { default as actorBaseModel } from "./actorBase.mjs";
+import { default as muActorBaseModel } from "./actorBase.mjs";
 
-const config = {};
+const config = {
+  anvil: muActorBaseModel,
+};
 
-export { actorBaseModel, config };
+export { muActorBaseModel, config };
