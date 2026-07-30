@@ -18,8 +18,8 @@ export function localizeHelper(object) {
 
 /**
  * A helper function that Prepends a Key with METALLURGENT and returns a localized string with that Key.
- * @param {string} keyString A realitive localization key
- * @returns {string} localized-String A sting Localized to the METALLUGENT Space.
+ * @param {string} keyString - A realitive localization key
+ * @returns {string} - A string Localized to the METALLUGENT Space.
  */
 export function localizeMU(keyString) {
   return game.i18n.localize(`METALLURGENT.${keyString}`);
