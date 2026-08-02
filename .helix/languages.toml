@@ -10,6 +10,7 @@ auto-format = true
 
 [[language]]
 name = "javascript"
+file-types = [ "mjs" ]
 formatter = { command = 'prettier', args = ["--parser", "typescript"] }
 auto-format = true
 

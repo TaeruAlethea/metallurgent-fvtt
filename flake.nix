@@ -33,8 +33,7 @@
                   #Language Servers
                   typescript
                   typescript-language-server
-                  vscode-css-languageserver
-                  superhtml
+                  vscode-langservers-extracted
 
                   #Formatters
                   prettier
