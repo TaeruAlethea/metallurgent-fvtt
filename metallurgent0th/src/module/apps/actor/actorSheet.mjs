@@ -20,13 +20,16 @@ export class muActorSheet extends api.HandlebarsApplicationMixin(
     primary: {
       tabs: [
         {
-          id: "cover",
+          id: "items",
         },
-        {
-          id: "components",
-        },
+        // {
+        //   id: "cover",
+        // },
+        // {
+        //   id: "components",
+        // },
       ],
-      initial: "cover",
+      initial: "items",
       labelPrefix: "MU.Sheets.Tabs",
     },
   };
@@ -34,20 +37,25 @@ export class muActorSheet extends api.HandlebarsApplicationMixin(
   /** @inheritdoc */
   static PARTS = {
     header: {
-      template: systemPath("templats/actor/header.hbs"),
+      template: systemPath("templates/actor/header.hbs"),
     },
     tabs: {
       template: "templates/generic/tab-navigation.hbs",
     },
-    cover: {
-      // TODO
-      template: systemPath("templates/actor/cover.hbs"),
+    items: {
+      template: systemPath("templates/actor/items.hbs"),
       scrollable: [""],
     },
-    components: {
-      template: systemPath("templates/actor/components.hbs"),
-      scrollable: [""],
-    },
+    // cover: {
+    //   // TODO
+    //   template: systemPath("templates/actor/cover.hbs"),
+    //   scrollable: [""],
+    // },
+    // components: {
+    //   // TODO
+    //   template: systemPath("templates/actor/components.hbs"),
+    //   scrollable: [""],
+    // },
   };
 
   /** @inheritdoc */
@@ -67,11 +75,20 @@ export class muActorSheet extends api.HandlebarsApplicationMixin(
       owner: this.document.isOwner,
       limited: this.document.limited,
       actor: this.actor,
-      flags: system.actor.flags,
+      flags: this.actor.flags,
       actorFields: this.actor.schema.fields,
       config: CONFIG,
     });
 
     return context;
+  }
+
+  /**
+   * Callback actions which occur when a dragged element is dropped on a target.
+   * @param {DragEvent} event       The originating DragEvent.
+   * @protected
+   */
+  async _onDrop(event) {
+    this.render();
   }
 }
