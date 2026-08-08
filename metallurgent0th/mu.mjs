@@ -54,6 +54,12 @@ async function hitcheckCommand(command, match, chatData) {
   const attacks = await hitcheck(par, qty, burst);
   var message = "<div>";
 
+	if (burst > 1){
+		message += `Par: ${par}, Qty: ${qty}, Burst: ${burst} <br>`
+	} else {
+		message += `Par: ${par}, Qty: ${qty} <br>`
+	}
+
   attacks.forEach((attack, i, _) => {
     if (attack[0] > 0) {
       console.log(
