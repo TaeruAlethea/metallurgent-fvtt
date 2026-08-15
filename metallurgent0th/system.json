@@ -44,5 +44,19 @@
   		"extensions": ["css","html","hbs","json"],
   		"paths": ["metallurgent.css", "templates","lang"]
   	}
-  }
+  },
+  "documentTypes": {
+  	"Actor": {
+			"anvil":{},
+			"vehicleConventional":{}
+		},
+		"Item": {
+			"anvlCore": {},
+			"anvlMobilityBase": {},
+			"anvlArmLeft": {},
+			"anvlArmRight": {},
+			"anvlGenerator": {},
+			"anvlElectronics": {}
+		}
+	}
 }
