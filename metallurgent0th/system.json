@@ -15,12 +15,14 @@
     },
     {
       "name": "N. A. Sprinkle",
-      "url": "www.metallurgent.net/"},
+      "url": "www.metallurgent.net/"
+    },
     {
-    "name": "TaeruAlethea",
-    "url": "https://github.com/TaeruAlethea/metallurgent-fvtt",
-    "discord": "To be Added"
-  }],
+	    "name": "TaeruAlethea",
+	    "url": "https://github.com/TaeruAlethea/metallurgent-fvtt",
+	    "discord": "To be Added"
+	  }
+	],
   "esmodules": ["mu.mjs"],
   "styles": ["metallurgent.css"],
   "packs": [
