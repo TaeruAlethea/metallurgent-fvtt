@@ -10,5 +10,15 @@
     data-tooltip="{{item.name}}"
     height="100" width="100"
   >
-  {{formInput itemFields.name value=item.name}}
+	<div class="flexcolumn">
+	  {{formInput itemFields.name value=item.name}}
+	
+		<div class="flexrow">
+		  {{#each systemFields.details.fields}}
+				{{#unless (equals this.name "description") }}
+					{{formGroup this value=value localize=true}}
+				{{/unless}}
+			{{/each}}
+		</div>
+	</div>
 </header>

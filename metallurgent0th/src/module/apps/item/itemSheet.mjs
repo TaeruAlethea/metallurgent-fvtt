@@ -82,6 +82,7 @@ export class muItemSheet extends api.HandlebarsApplicationMixin(
       system: this.item.system,
       flags: this.item.flags,
       itemFields: this.item.schema.fields,
+      systemFields: this.item.system.schema.fields,
       config: CONFIG,
     });
 
