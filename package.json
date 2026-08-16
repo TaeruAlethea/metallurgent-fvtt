@@ -38,6 +38,7 @@
   },
   "scripts": {
   	"build": "tsc --project ./metallurgent0th/",
+  	"build:css": "lessc ./metallurgent0th/less/mu.less ./metallurgent0th/mu.css",
     "build:docs": "typedoc",
     "lint": "eslint ./metallurgent0th/mu.mjs ./metallurgent0th/src/module/**/* ./metallurgent0th/templates/**/*",
     "lint:fix": "eslint --fix ./metallurgent0th/mu.mjs ./metallurgent0th/src/module/**/* ./metallurgent0th/templates/**/*"

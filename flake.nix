@@ -29,6 +29,7 @@
                 nativeBuildInputs = with pkgs; [
                   #Tooling
                   nodejs
+                  lessc
 
                   #Language Servers
                   typescript
