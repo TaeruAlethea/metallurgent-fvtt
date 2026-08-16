@@ -24,7 +24,7 @@
 	  }
 	],
   "esmodules": ["mu.mjs"],
-  "styles": ["metallurgent.css"],
+  "styles": ["mu.css"],
   "packs": [
     
   ],
@@ -42,7 +42,7 @@
   "flags": {
   	"hotReload":{
   		"extensions": ["css","html","hbs","json"],
-  		"paths": ["metallurgent.css", "templates","lang"]
+  		"paths": ["mu.css", "templates","lang"]
   	}
   },
   "documentTypes": {

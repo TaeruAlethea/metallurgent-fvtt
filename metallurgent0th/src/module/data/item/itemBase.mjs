@@ -37,7 +37,7 @@ export default class muItemBaseModel extends muSystemModel {
         initial: 1,
         nullable: true,
       }),
-      description: new fields.HTMLField({
+      description: new fields.StringField({
         label: localizeMU("general.description"),
         required: true,
         blank: true,

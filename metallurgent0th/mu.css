@@ -1,4 +1,19 @@
-.mu.item.itemSheet .sheet {
-  width: 600px;
-  /* height: 580px; */
+.application.sheet.mu.item {
+  min-width: 650px;
+  max-width: 80%;
+}
+.application.sheet.mu .sheet-header {
+  margin-bottom: 10px;
+}
+.application.sheet.mu .sheet-header img {
+  flex: 0 0 150px;
+  object-fit: contain;
+}
+.application.sheet.mu .sheet-header input[name="name"] {
+  height: 2.5em;
+  font-size: 2rem;
+}
+.form-group,
+.form-fields {
+  margin: 2px;
 }

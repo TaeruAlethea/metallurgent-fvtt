@@ -1,6 +1,22 @@
-.metallurgent.sheet.itemSheet {
-    .sheet{
-        width: 580px;
-        height: 580px;
-    };
+.application.sheet.mu {
+  &.item {
+    min-width: 650px;
+    max-width: 80%;
+  }
+  .sheet-header {
+    margin-bottom: 10px;
+    img {
+      flex: 0 0 150px;
+      object-fit: contain;
+    }
+    input[name="name"] {
+      height: 2.5em;
+      font-size: 2rem;
+    }
+  }
+}
+
+.form-group,
+.form-fields {
+  margin: 2px;
 }

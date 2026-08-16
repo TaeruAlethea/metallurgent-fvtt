@@ -11,10 +11,12 @@ export class muItemSheet extends api.HandlebarsApplicationMixin(
 ) {
   /** @inheritdoc */
   static DEFAULT_OPTIONS = {
-    position: {
-      width: 600,
+    classes: ["mu", "item"],
+    window: {
+      minimizable: true,
+      positioned: true,
+      resizable: true,
     },
-    classes: ["mu", "item", "standard-form"],
     actions: {
       viewDoc: this.#viewEffect,
       createDoc: this.#createEffect,
@@ -45,16 +47,12 @@ export class muItemSheet extends api.HandlebarsApplicationMixin(
       // Foundry generic template
       template: "templates/generic/tab-navigation.hbs",
     },
-    properties: {
-      template: systemPath("templates/shared/properties.hbs"),
-      scrollable: [""],
-    },
+    // properties: {
+    //   template: systemPath("templates/shared/properties.hbs"),
+    //   scrollable: [""],
+    // },
     effects: {
       template: systemPath("templates/shared/effects.hbs"),
-      scrollable: [""],
-    },
-    details: {
-      template: systemPath("templates/shared/details.hbs"),
       scrollable: [""],
     },
   };
