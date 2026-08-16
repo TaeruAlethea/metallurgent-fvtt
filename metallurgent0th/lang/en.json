@@ -77,12 +77,17 @@
 			"3rd": "3rd",
 			"4th": "4th",
 			"5th": "5th",
-			"costUnit": "Cost per Unit",
-			"costBulk": "Cost per Mag",
+			"costUnit": "Cost, Unit",
+			"costBulk": "Cost, Bulk",
 			"description": "Description",
 			"origin": "Origin",
 			"manufacturer": "Manufacturer",
-			"introductionYear": "Introduction Year"
+			"introductionYear": "Intro. Year"
+		}
+	},
+	"TYPES":{
+		"Actor":{
+			"anvil": "Advanced Networked Vehicular Linkage (ANVL)"
 		}
 	}
 }
