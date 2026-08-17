@@ -6,7 +6,7 @@ import MU from "./src/module/config.mjs";
 import { localizeHelper } from "./src/module/helpers/utils.mjs";
 
 Hooks.once("init", () => {
-  console.log("metallurgent | Initialising Metallurgent System");
+  console.log("Metallurgent | Initialising Metallurgent System");
 
   CONFIG.MU = MU;
   Object.assign(CONFIG.Actor.dataModels, dataModels.Actor.config);
@@ -35,8 +35,8 @@ Hooks.once("init", () => {
     fn: (a, b, c) => hitcheckCommand(a, b, c),
   };
 
+  console.log("Metallurgent | Initialisation Complete");
   registerHandelbarsHelpers();
-  console.log("metallurgent | Initialisation Complete");
 });
 
 Hooks.once("i18nInit", () => {
