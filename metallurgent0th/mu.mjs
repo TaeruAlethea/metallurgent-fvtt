@@ -34,6 +34,10 @@ Hooks.once("init", () => {
     rgx: /(?:hitcheck) ?(\d*) ?(\d*) ?(\d*)/,
     fn: (a, b, c) => hitcheckCommand(a, b, c),
   };
+  CONFIG.ui.chat.CHAT_COMMANDS.hc = {
+    rgx: /(?:hc) ?(\d*) ?(\d*) ?(\d*)/,
+    fn: (a, b, c) => hitcheckCommand(a, b, c),
+  };
 
   console.log("Metallurgent | Initialisation Complete");
 });
@@ -44,19 +48,23 @@ Hooks.once("i18nInit", () => {
 });
 
 async function hitcheckCommand(command, match, chatData) {
-  // console.log(command);
-  // console.log(match);
-
   var par = match[1] ? Math.clamp(parseInt(match[1]), 1, 6) : 4;
   var qty = match[2] ? Math.clamp(parseInt(match[2]), 1, 25) : 6;
   var burst = match[3] ? Math.clamp(parseInt(match[3]), 1, 25) : 1;
 
   const attacks = await hitcheck(par, qty, burst);
+
   var message = "<div>";
-  if (game.user.targets?.first()?.document.name) {
-    message += `Attacking: ${game.user.targets.first().document.name} <br>`;
-  } else {
-    message += `Attacking: NO-TARGET <br>`;
+  switch (true) {
+    case game.user.targets.size > 1:
+      message += `WARNING: MULTIPLE-TARGETS-SELECTED <br>`;
+    case game.user.targets.size > 0:
+      message += `Attacking: ${game.user.targets.first().document.name} <br>`;
+      break;
+    case game.user.targets.size === 0:
+      message += `WARNING: NO-TARGETS-SELECTED <br>`;
+      message += `Attacking: NO-TARGET <br>`;
+      break;
   }
 
   if (burst > 1) {
@@ -67,12 +75,8 @@ async function hitcheckCommand(command, match, chatData) {
 
   attacks.forEach((attack, i, _) => {
     if (attack[0] > 0) {
-      // console.log(
-      //   `Attack ${i + 1}: Successes: ${attack[0]}, Hit Location: ${attack[1]}`,
-      // );
-      message += `Attack ${i + 1}: Successes: ${attack[0]}, Hit Location: ${attack[1]}`;
+      message += `Attack ${i + 1}: Successes: ${attack[0]} (${attack[1]}), Hit Location: ${attack[2]}`;
     } else {
-      // console.log(`Attack ${i + 1}: failed.`);
       message += `Attack ${i + 1}: failed.`;
     }
     message += "<br>";
@@ -95,30 +99,25 @@ async function hitcheckCommand(command, match, chatData) {
  * @param {number} [burst=1] - How many over all attacks to execute
  */
 async function hitcheck(par = 4, qty = 6, burst = 1) {
-  // console.debug(
-  //   `metallurgent | Hit Check: Par: ${par}, Qty: ${qty}, Burst: ${burst}`,
-  // );
-  var attacks = [];
+  let attacks = [];
   for (let burstIndex = 0; burstIndex < burst; burstIndex++) {
-    var successes = 0;
+    let successes = 0;
+    let sixes = 0;
 
     for (let rollIndex = 0; rollIndex < qty + burstIndex; rollIndex++) {
       const roll = await new Roll(`1d6`).evaluate();
       if (par <= roll.total) {
         if (roll.total == 6) {
           successes++; // bonus success on 6's
+          sixes++;
         }
         successes++;
       }
     }
     if (0 < successes) {
       const hitlocation = await new Roll("1d6").evaluate();
-      // console.debug(
-      //   `Attack ${burstIndex + 1}: Successes: ${successes}, Hit location: ${hitlocation.total}`,
-      // );
-      attacks.push([successes, hitlocation.total]);
+      attacks.push([successes, sixes, hitlocation.total]);
     } else {
-      // console.debug(`Attack ${burstIndex + 1}: No successes.`);
       attacks.push([successes]);
     }
   }
