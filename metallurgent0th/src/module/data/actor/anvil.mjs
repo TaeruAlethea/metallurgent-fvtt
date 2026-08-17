@@ -2,7 +2,7 @@ import muSystemModel from "../systemBase.mjs";
 
 const fields = foundry.data.fields;
 
-export default class muActorBaseModel extends muSystemModel {
+export default class muAnvilActorModel extends muSystemModel {
   /**
    * Key information about this item subtype.
    * @type {import("./_types").ItemMetaData}
@@ -10,7 +10,7 @@ export default class muActorBaseModel extends muSystemModel {
   static get metadata() {
     return {
       ...super.metadata,
-      type: "actorBase",
+      type: "AnvilActor",
       invalidActorTypes: [],
       packOnly: false,
     };
