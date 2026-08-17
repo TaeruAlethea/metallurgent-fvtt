@@ -50,9 +50,9 @@ jobs:
 
       # Create zip file.
       - name: Create ZIP archive
-        run: git archive -o metallurgent0th.zip --format=zip HEAD:metallurgent0th/
+        run: git archive -o metallurgent0th.zip --format=zip HEAD:metallurgent0th
 
-			# Create a release for this specific version.
+      # Create a release for this specific version.
       - name: Update Release with Files
         id: create_version_release
         uses: ncipollo/release-action@v1
