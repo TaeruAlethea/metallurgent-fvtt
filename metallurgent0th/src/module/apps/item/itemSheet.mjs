@@ -77,8 +77,8 @@ export class muItemSheet extends api.HandlebarsApplicationMixin(
       config: CONFIG,
     });
 
-    console.log(this.item.system);
-    console.log(this.item.schema.fields);
+    // console.log(this.item.system);
+    // console.log(this.item.schema.fields);
 
     return context;
   }
@@ -87,6 +87,8 @@ export class muItemSheet extends api.HandlebarsApplicationMixin(
   /** @inheritdoc */
   async _preparePartContext(partId, context) {
     switch (partId) {
+      case "header":
+        break;
       case "anvlComponent":
         context.tab = context.tabs[partId];
         break;

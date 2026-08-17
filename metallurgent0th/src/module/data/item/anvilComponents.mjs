@@ -1,5 +1,5 @@
 import muItemBaseModel from "./itemBase.mjs";
-import { localizedSchemaChoices, localizeMU } from "../../helpers/utils.mjs";
+import { localizedSchemaChoices } from "../../helpers/utils.mjs";
 
 const { NumberField, SchemaField, StringField } = foundry.data.fields;
 

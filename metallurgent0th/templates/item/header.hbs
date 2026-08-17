@@ -14,11 +14,13 @@
 	  {{formGroup itemFields.name value=item.name}}
 	
 		<div class="subDetails flexrow">
-		  {{#each systemFields.details.fields}}
-				{{#unless (eq this.name "description") }}
-					{{formGroup this value=value localize=true hint=false}}
-				{{/unless}}
-			{{/each}}
+			{{formGroup systemFields.details.fields.manufacturer value=system.details.manufacturer localize=true hint=false}}
+			{{formGroup systemFields.details.fields.introductionYear value=system.details.introductionYear localize=true hint=false}}
+			{{formGroup systemFields.details.fields.origin value=system.details.origin localize=true hint=false}}
+		</div>
+		<div class="subDetails flexrow">
+			{{formGroup systemFields.details.fields.costUnit value=system.details.costUnit localize=true hint=false}}
+			{{formGroup systemFields.details.fields.costBulk value=system.details.costBulk localize=true hint=false}}
 		</div>
 	</div>
 </header>
