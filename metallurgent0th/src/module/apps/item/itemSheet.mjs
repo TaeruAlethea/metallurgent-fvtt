@@ -47,10 +47,10 @@ export class muItemSheet extends api.HandlebarsApplicationMixin(
       // Foundry generic template
       template: "templates/generic/tab-navigation.hbs",
     },
-    // properties: {
-    //   template: systemPath("templates/shared/properties.hbs"),
-    //   scrollable: [""],
-    // },
+    properties: {
+      template: systemPath("templates/shared/properties.hbs"),
+      scrollable: [""],
+    },
     effects: {
       template: systemPath("templates/shared/effects.hbs"),
       scrollable: [""],
@@ -83,6 +83,8 @@ export class muItemSheet extends api.HandlebarsApplicationMixin(
       systemFields: this.item.system.schema.fields,
       config: CONFIG,
     });
+
+    console.log(this.item.system.schema.fields);
 
     return context;
   }

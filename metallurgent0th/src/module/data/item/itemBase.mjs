@@ -1,10 +1,13 @@
-import { localizeMU } from "../../helpers/utils.mjs";
+// import { localizeMU } from "../../helpers/utils.mjs";
 import muSystemModel from "../systemBase.mjs";
 
 const fields = foundry.data.fields;
 
 export default class muItemBaseModel extends muSystemModel {
-  static LOCALIZATION_PREFIXES = ["MU.MUITEMBASEMODEL"];
+  static LOCALIZATION_PREFIXES = [
+    ...super.LOCALIZATION_PREFIXES,
+    "MU.MUITEMBASEMODEL",
+  ];
   /**
    * Key information about this item subtype.
    * @type {import("./_types").ItemMetaData}
@@ -24,14 +27,12 @@ export default class muItemBaseModel extends muSystemModel {
 
     const details = {
       costUnit: new fields.NumberField({
-        label: localizeMU("general.costUnit"),
         required: true,
         integer: true,
         positive: true,
         initial: 1,
       }),
       costBulk: new fields.NumberField({
-        label: localizeMU("general.costBulk"),
         required: true,
         integer: false,
         positive: true,
@@ -39,22 +40,18 @@ export default class muItemBaseModel extends muSystemModel {
         nullable: true,
       }),
       description: new fields.StringField({
-        label: localizeMU("general.description"),
         required: true,
         blank: true,
       }),
       origin: new fields.StringField({
-        label: localizeMU("general.origin"),
         required: true,
         blank: true,
       }),
       manufacturer: new fields.StringField({
-        label: localizeMU("general.manufacturer"),
         required: true,
         blank: true,
       }),
       introductionYear: new fields.NumberField({
-        label: localizeMU("general.introductionYear"),
         required: true,
         integer: true,
         positive: true,
@@ -63,9 +60,7 @@ export default class muItemBaseModel extends muSystemModel {
       }),
     };
 
-    schema.details = new fields.SchemaField(details, {
-      label: localizeMU("general.details"),
-    });
+    schema.details = new fields.SchemaField(details);
     return schema;
   }
 

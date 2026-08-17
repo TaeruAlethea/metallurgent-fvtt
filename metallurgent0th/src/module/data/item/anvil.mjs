@@ -1,10 +1,13 @@
 import muItemBaseModel from "./itemBase.mjs";
-import { localizeMU } from "../../helpers/utils.mjs";
+import { localizedSchemaChoices, localizeMU } from "../../helpers/utils.mjs";
 
 const { NumberField, SchemaField, StringField } = foundry.data.fields;
 
 export class anvlComponentModel extends muItemBaseModel {
-  static LOCALIZATION_PREFIXES = ["MU.ANVLCOMPONENTMODEL"];
+  static LOCALIZATION_PREFIXES = [
+    ...super.LOCALIZATION_PREFIXES,
+    "MU.ANVLCOMPONENTMODEL",
+  ];
   static metadata = Object.freeze({
     SubtypeMetadata: {
       type: "Anvil_Component",
@@ -20,42 +23,33 @@ export class anvlComponentModel extends muItemBaseModel {
         positive: true,
         initial: 1,
       }),
-      resistance: new SchemaField(
-        {
-          kenetic: new NumberField({
-            required: true,
-            integer: true,
-            positive: true,
-            initial: 1,
-          }),
-          chemical: new NumberField({
-            label: localizeMU("stats.resistances.chemical"),
-            required: true,
-            integer: true,
-            positive: true,
-            initial: 1,
-          }),
-          thermal: new NumberField({
-            label: localizeMU("stats.resistances.thermal"),
-            required: true,
-            integer: true,
-            positive: true,
-            initial: 1,
-          }),
-        },
-        {
-          label: localizeMU("stats.resistance"),
-        },
-      ),
+      resistance: new SchemaField({
+        kenetic: new NumberField({
+          required: true,
+          integer: true,
+          positive: true,
+          initial: 1,
+        }),
+        chemical: new NumberField({
+          required: true,
+          integer: true,
+          positive: true,
+          initial: 1,
+        }),
+        thermal: new NumberField({
+          required: true,
+          integer: true,
+          positive: true,
+          initial: 1,
+        }),
+      }),
       load: new NumberField({
-        label: localizeMU("stats.load"),
         required: true,
         integer: false,
         positive: true,
         initial: 1,
       }),
       energyDrain: new NumberField({
-        label: localizeMU("stats.energyDrain"),
         required: true,
         integer: true,
         positive: true,
@@ -66,7 +60,10 @@ export class anvlComponentModel extends muItemBaseModel {
 }
 
 export class anvlCoreModel extends anvlComponentModel {
-  static LOCALIZATION_PREFIXES = ["MU.anvlComponentModel.anvlCoreModel"];
+  static LOCALIZATION_PREFIXES = [
+    ...super.LOCALIZATION_PREFIXES,
+    "MU.ANVLCOMPONENTMODEL.ANVLCOREMODEL",
+  ];
   static defineSchema() {
     return {
       ...super.defineSchema(),
@@ -111,9 +108,11 @@ export class anvlCoreModel extends anvlComponentModel {
 
 export class anvlMobilityBaseModel extends anvlComponentModel {
   static LOCALIZATION_PREFIXES = [
-    "MU.anvlComponentModel.anvlMobilityBaseModel",
+    ...super.LOCALIZATION_PREFIXES,
+    "MU.ANVLCOMPONENTMODEL.ANVLMOBILITYBASEMODEL",
   ];
   static defineSchema() {
+    const localization_prefix = "MU.ANVLCOMPONENTMODEL.ANVLMOBILITYBASEMODEL";
     return {
       ...super.defineSchema(),
       dodgeBonus: new NumberField({
@@ -151,14 +150,14 @@ export class anvlMobilityBaseModel extends anvlComponentModel {
         required: true,
         blank: false,
         initial: "biped",
-        choices: {
-          biped: localizeMU("anvil.mobilityBaseTypes.biped"),
-          hover: localizeMU("anvil.mobilityBaseTypes.hover"),
-          quadruped: localizeMU("anvil.mobilityBaseTypes.quadruped"),
-          reverseJoint: localizeMU("anvil.mobilityBaseTypes.reverseJoint"),
-          tracked: localizeMU("anvil.mobilityBaseTypes.tracked"),
-          wheeled: localizeMU("anvil.mobilityBaseTypes.wheeled"),
-        },
+        choices: localizedSchemaChoices(localization_prefix, "chassisType", [
+          "biped",
+          "hover",
+          "quadruped",
+          "reverseJoint",
+          "tracked",
+          "wheeled",
+        ]),
       }),
       loadTolerance: new SchemaField({
         1: new NumberField({
@@ -197,7 +196,10 @@ export class anvlMobilityBaseModel extends anvlComponentModel {
 }
 
 export class anvlArmLeftModel extends anvlComponentModel {
-  static LOCALIZATION_PREFIXES = ["MU.anvlComponentModel.anvlArmModel"];
+  static LOCALIZATION_PREFIXES = [
+    ...super.LOCALIZATION_PREFIXES,
+    "MU.ANVLCOMPONENTMODEL.ANVLARMMODEL",
+  ];
   static defineSchema() {
     return {
       ...super.defineSchema(),
@@ -224,7 +226,10 @@ export class anvlArmLeftModel extends anvlComponentModel {
 }
 
 export class anvlArmRightModel extends anvlComponentModel {
-  static LOCALIZATION_PREFIXES = ["MU.anvlComponentModel.anvlArmModel"];
+  static LOCALIZATION_PREFIXES = [
+    ...super.LOCALIZATION_PREFIXES,
+    "MU.ANVLCOMPONENTMODEL.ANVLARMMODEL",
+  ];
   static defineSchema() {
     return {
       ...super.defineSchema(),
@@ -251,7 +256,10 @@ export class anvlArmRightModel extends anvlComponentModel {
 }
 
 export class anvlGeneratorModel extends anvlComponentModel {
-  static LOCALIZATION_PREFIXES = ["MU.anvlComponentModel.anvlGeneratorModel"];
+  static LOCALIZATION_PREFIXES = [
+    ...super.LOCALIZATION_PREFIXES,
+    "MU.ANVLCOMPONENTMODEL.ANVLGENERATORMODEL",
+  ];
   static defineSchema() {
     return {
       ...super.defineSchema(),
@@ -275,7 +283,10 @@ export class anvlGeneratorModel extends anvlComponentModel {
 }
 
 export class anvlElectronicsModel extends anvlComponentModel {
-  static LOCALIZATION_PREFIXES = ["MU.anvlComponentModel.anvlElectronicsModel"];
+  static LOCALIZATION_PREFIXES = [
+    ...super.LOCALIZATION_PREFIXES,
+    "MU.ANVLCOMPONENTMODEL.ANVLELECTRONICSMODEL",
+  ];
   static defineSchema() {
     return {
       ...super.defineSchema(),

@@ -1,5 +1,5 @@
 {
-	"METALLURGENT":{
+	"MU":{
 		"systemName": "Metallurgent",
 		"stats":{
 			"armorPoints": "AP",
@@ -83,6 +83,100 @@
 			"origin": "Origin",
 			"manufacturer": "Manufacturer",
 			"introductionYear": "Intro. Year"
+		},
+		"MUITEMBASEMODEL":{
+			"FIELDS":{
+				"details":{
+					"label": "details",
+					"costUnit":{
+						"label": "Cost, Unit"
+					},
+					"costBulk":{
+						"label": "Cost, Bulk",
+						"hint": "The cost to buy a bulk quantities, including Magazines."
+					},
+
+					"desctiption": {
+						"label": "Description"
+					},
+					"origin": {
+						"label": "Origin"
+					},
+					"manufacturer": {
+						"label": "Manufacturer"
+					},
+					"interoductionYear": {
+						"label": "Intro. Year",
+						"hint": "The year introduced or released."
+					}
+				}
+			}
+		},
+		"ANVLCOMPONENTMODEL":{
+			"FIELDS": {
+				"armorPoints": {
+					"label": "AP",
+					"hint": "Armor Points"
+				},
+				"resistance": {
+					"label": "Resistances",
+					"kenetic": {
+						"label": "Kenetic"
+					},
+					"chemical": {
+						"label": "Chemical"
+					},
+					"thermal": {
+						"label": "Thermal"
+					}
+				},
+				"load": {
+					"label": "Load",
+					"hint": "The \"weight\" the component."
+				},
+				"energyDrain":{
+					"label": "Energy Drain"
+				}
+			},
+			"ANVLCOREMODEL": {
+				"FIELDS": {
+					"blockBonus": "Block Bonus",
+					"blockCost": "Block Cost",
+					"defenceValue": "Defence Value",
+					"criticalOutput": "Critical Output",
+					"hardpoints": "Hardpoints"
+				}
+			},
+			"ANVLMOBILITYBASEMODEL": {
+				"FIELDS": {
+					"dodgeBonus": {
+						"label": "Dodge Bonus"
+					},
+					"dodgeCost": {
+						"label": "Dodge Cost"
+					},
+					"speed": {
+						"label": "Speed"
+					},
+					"manoeuvreCost":{
+						"label": "Manoeuvre Cost"
+					},
+					"initiative": {
+						"label": "Initiative"
+					},
+					"chassisType": {
+						"label": "Chassis Type",
+						"CHOICES": {
+							"biped": "Biped",
+							"hover": "Hover",
+							"quadruped": "Quadruped",
+							"reverseJoint": "Reverse Joint",
+							"tracked": "Tracked",
+							"wheeled": "Wheeled"
+						}
+					}
+				}
+			}
 		}
 	},
 	"TYPES":{

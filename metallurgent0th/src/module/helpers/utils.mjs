@@ -22,7 +22,23 @@ export function localizeHelper(object) {
  * @returns {string} - A string Localized to the METALLUGENT Space.
  */
 export function localizeMU(keyString) {
-  return game.i18n.localize(`METALLURGENT.${keyString}`);
+  return game.i18n.localize(`MU.${keyString}`);
+}
+
+export function localizedSchemaChoices(
+  localization_prefix,
+  field_name,
+  choices_array,
+) {
+  const localized_choices = {};
+  choices_array.forEach((choice) => {
+    const localization_string = localization_prefix.concat(
+      `.${field_name}.CHOICES.${choice}`,
+    );
+    localized_choices[choice] = game.i18n.localize(localization_string);
+  });
+
+  return localized_choices;
 }
 
 /* -------------------------------------------------- */

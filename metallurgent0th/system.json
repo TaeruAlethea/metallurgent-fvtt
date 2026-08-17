@@ -23,11 +23,10 @@
 	    "discord": "To be Added"
 	  }
 	],
+	"manifest": "https://github.com/TaeruAlethea/metallurgent-fvtt/releases/latest/download/system.json",
+	"download": "https://github.com/TaeruAlethea/metallurgent-fvtt/releases/download/0.0.2/metallugent0th.zip",
   "esmodules": ["mu.mjs"],
   "styles": ["mu.css"],
-  "packs": [
-    
-  ],
   "languages": [{
     "lang": "en",
     "name": "English",
