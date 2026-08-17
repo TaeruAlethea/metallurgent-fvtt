@@ -59,7 +59,6 @@ jobs:
         with:
           allowUpdates: true
           omitNameDuringUpdate: true
-          token: ${{ secrets.GITHUB_TOKEN }}
           artifacts: "./metallurgent0th/system.json, ./metallurgent0th.zip"
           tag: ${{ github.event.release.tag_name }}
           makeLatest: false
