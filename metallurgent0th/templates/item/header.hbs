@@ -15,7 +15,7 @@
 	
 		<div class="subDetails flexrow">
 		  {{#each systemFields.details.fields}}
-				{{#unless (equals this.name "description") }}
+				{{#unless (eq this.name "description") }}
 					{{formGroup this value=value localize=true}}
 				{{/unless}}
 			{{/each}}

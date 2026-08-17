@@ -36,7 +36,6 @@ Hooks.once("init", () => {
   };
 
   console.log("Metallurgent | Initialisation Complete");
-  registerHandelbarsHelpers();
 });
 
 Hooks.once("i18nInit", () => {
@@ -122,60 +121,4 @@ async function hitcheck(par = 4, qty = 6, burst = 1) {
     }
   }
   return attacks;
-}
-
-function registerHandelbarsHelpers() {
-  Handlebars.registerHelper("equals", function (v1, v2) {
-    return v1 === v2;
-  });
-
-  Handlebars.registerHelper("contains", function (element, search) {
-    return element.includes(search);
-  });
-
-  Handlebars.registerHelper("concat", function (s1, s2, s3 = "") {
-    return s1 + s2 + s3;
-  });
-
-  Handlebars.registerHelper("isGreater", function (p1, p2) {
-    return p1 > p2;
-  });
-
-  Handlebars.registerHelper("isEqualORGreater", function (p1, p2) {
-    return p1 >= p2;
-  });
-
-  Handlebars.registerHelper("ifOR", function (conditional1, conditional2) {
-    return conditional1 || conditional2;
-  });
-
-  Handlebars.registerHelper("doLog", function (value) {
-    console.log(value);
-  });
-
-  Handlebars.registerHelper("toBoolean", function (string) {
-    return string === "true";
-  });
-
-  Handlebars.registerHelper("for", function (from, to, incr, content) {
-    let result = "";
-
-    for (let i = from; i < to; i += incr) result += content.fn(i);
-
-    return result;
-  });
-
-  Handlebars.registerHelper("times", function (n, content) {
-    let result = "";
-
-    for (let i = 0; i < n; i++) result += content.fn(i);
-
-    return result;
-  });
-
-  Handlebars.registerHelper("notEmpty", function (value) {
-    if (value == 0 || value == "0") return true;
-    if (value == null || value == "") return false;
-    return true;
-  });
 }
