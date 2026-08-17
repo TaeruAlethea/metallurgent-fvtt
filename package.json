@@ -42,6 +42,7 @@
     "build:docs": "typedoc",
     "lint": "eslint ./metallurgent0th/mu.mjs ./metallurgent0th/src/module/**/* ./metallurgent0th/templates/**/*",
     "lint:fix": "eslint --fix ./metallurgent0th/mu.mjs ./metallurgent0th/src/module/**/* ./metallurgent0th/templates/**/*",
+    "prepareRelease": "npm run build:css",
     "watch:css": "onchange './metallurgent0th/less/**/*.less' -- npm run build:css"
   },
   "dependencies": {
