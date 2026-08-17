@@ -3,7 +3,7 @@
   "title": "Metallurgent Zero Edition",
   "description": "tbd",
   "type": "system",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "compatibility": {
     "minimum": 14,
     "verified": 14
