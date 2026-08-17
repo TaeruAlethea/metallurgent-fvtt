@@ -50,7 +50,7 @@ jobs:
 
       # Create zip file.
       - name: Create ZIP archive
-        run: zip -r ./metallurgent0th.zip ./metallurgent0th
+        run: zip -r ./metallurgent0th ./metallurgent0th
 
 			# Create a release for this specific version.
       - name: Update Release with Files
