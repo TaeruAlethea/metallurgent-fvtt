@@ -25,9 +25,9 @@ export class muActorSheet extends api.HandlebarsApplicationMixin(
         // {
         //   id: "cover",
         // },
-        // {
-        //   id: "components",
-        // },
+        {
+          id: "components",
+        },
       ],
       initial: "items",
       labelPrefix: "MU.Sheets.Tabs",
@@ -51,11 +51,10 @@ export class muActorSheet extends api.HandlebarsApplicationMixin(
     //   template: systemPath("templates/actor/cover.hbs"),
     //   scrollable: [""],
     // },
-    // components: {
-    //   // TODO
-    //   template: systemPath("templates/actor/components.hbs"),
-    //   scrollable: [""],
-    // },
+    components: {
+      template: systemPath("templates/shared/components.hbs"),
+      scrollable: [""],
+    },
   };
 
   /** @inheritdoc */
