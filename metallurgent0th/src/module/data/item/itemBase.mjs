@@ -4,6 +4,7 @@ import muSystemModel from "../systemBase.mjs";
 const fields = foundry.data.fields;
 
 export default class muItemBaseModel extends muSystemModel {
+  static LOCALIZATION_PREFIXES = ["MU.MUITEMBASEMODEL"];
   /**
    * Key information about this item subtype.
    * @type {import("./_types").ItemMetaData}
@@ -67,12 +68,6 @@ export default class muItemBaseModel extends muSystemModel {
     });
     return schema;
   }
-
-  /** @inheritdoc */
-  static LOCALIZATION_PREFIXES = [
-    "METALLURGENT.item.base",
-    "METALLURGENT.SOURCE",
-  ];
 
   get actor() {
     return this.parent.actor;

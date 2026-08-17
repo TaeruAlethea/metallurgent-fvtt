@@ -4,6 +4,7 @@ import { localizeMU } from "../../helpers/utils.mjs";
 const { NumberField, SchemaField, StringField } = foundry.data.fields;
 
 export class anvlComponentModel extends muItemBaseModel {
+  static LOCALIZATION_PREFIXES = ["MU.ANVLCOMPONENTMODEL"];
   static metadata = Object.freeze({
     SubtypeMetadata: {
       type: "Anvil_Component",
@@ -14,7 +15,6 @@ export class anvlComponentModel extends muItemBaseModel {
     return {
       ...super.defineSchema(),
       armorPoints: new NumberField({
-        label: localizeMU("stats.armorPoints"),
         required: true,
         integer: true,
         positive: true,
@@ -23,7 +23,6 @@ export class anvlComponentModel extends muItemBaseModel {
       resistance: new SchemaField(
         {
           kenetic: new NumberField({
-            label: localizeMU("stats.resistances.kenetic"),
             required: true,
             integer: true,
             positive: true,
@@ -67,6 +66,7 @@ export class anvlComponentModel extends muItemBaseModel {
 }
 
 export class anvlCoreModel extends anvlComponentModel {
+  static LOCALIZATION_PREFIXES = ["MU.anvlComponentModel.anvlCoreModel"];
   static defineSchema() {
     return {
       ...super.defineSchema(),
@@ -110,6 +110,9 @@ export class anvlCoreModel extends anvlComponentModel {
 }
 
 export class anvlMobilityBaseModel extends anvlComponentModel {
+  static LOCALIZATION_PREFIXES = [
+    "MU.anvlComponentModel.anvlMobilityBaseModel",
+  ];
   static defineSchema() {
     return {
       ...super.defineSchema(),
@@ -194,6 +197,7 @@ export class anvlMobilityBaseModel extends anvlComponentModel {
 }
 
 export class anvlArmLeftModel extends anvlComponentModel {
+  static LOCALIZATION_PREFIXES = ["MU.anvlComponentModel.anvlArmModel"];
   static defineSchema() {
     return {
       ...super.defineSchema(),
@@ -220,6 +224,7 @@ export class anvlArmLeftModel extends anvlComponentModel {
 }
 
 export class anvlArmRightModel extends anvlComponentModel {
+  static LOCALIZATION_PREFIXES = ["MU.anvlComponentModel.anvlArmModel"];
   static defineSchema() {
     return {
       ...super.defineSchema(),
@@ -246,6 +251,7 @@ export class anvlArmRightModel extends anvlComponentModel {
 }
 
 export class anvlGeneratorModel extends anvlComponentModel {
+  static LOCALIZATION_PREFIXES = ["MU.anvlComponentModel.anvlGeneratorModel"];
   static defineSchema() {
     return {
       ...super.defineSchema(),
@@ -269,6 +275,7 @@ export class anvlGeneratorModel extends anvlComponentModel {
 }
 
 export class anvlElectronicsModel extends anvlComponentModel {
+  static LOCALIZATION_PREFIXES = ["MU.anvlComponentModel.anvlElectronicsModel"];
   static defineSchema() {
     return {
       ...super.defineSchema(),
