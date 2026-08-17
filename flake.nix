@@ -27,6 +27,8 @@
               in
               pkgs.mkShell {
                 nativeBuildInputs = with pkgs; [
+									chromium
+                	
                   #Tooling
                   nodejs
                   lessc
