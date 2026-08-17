@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       # Get part of the tag after the `v`.
       - name: Extract tag version number
@@ -28,7 +28,7 @@ jobs:
         env:
           flags.hotReload: false
           version: ${{steps.get_version.outputs.version-without-v}}
-          download: https://github.com/${{github.repository}}/releases/download/${{github.event.release.tag_name}}/metallurgent0th-${{github.event.release.tag_name}}.zip
+          download: https://github.com/${{github.repository}}/releases/download/${{github.event.release.tag_name}}/metallurgent0th.zip
 
       # Set up Node
       - name: Use Node.js ${{ matrix.node-version }}
@@ -50,7 +50,7 @@ jobs:
 
       # Create zip file.
       - name: Create ZIP archive
-        run: git archive -o metallurgent0th-${{github.event.release.tag_name}}.zip --format=zip HEAD:metallurgent0th/
+        run: git archive -o metallurgent0th.zip --format=zip HEAD:metallurgent0th/
 
 			# Create a release for this specific version.
       - name: Update Release with Files
