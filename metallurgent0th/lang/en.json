@@ -96,7 +96,7 @@
 						"hint": "The cost to buy a bulk quantities, including Magazines."
 					},
 
-					"desctiption": {
+					"description": {
 						"label": "Description"
 					},
 					"origin": {
@@ -105,7 +105,7 @@
 					"manufacturer": {
 						"label": "Manufacturer"
 					},
-					"interoductionYear": {
+					"introductionYear": {
 						"label": "Intro. Year",
 						"hint": "The year introduced or released."
 					}
@@ -174,14 +174,117 @@
 							"tracked": "Tracked",
 							"wheeled": "Wheeled"
 						}
+					},
+					"loadTolerance": {
+						"label": "Load Tolerance",
+						"hint": "How much Load can be handled at a given stage",
+						"1": {
+							"label": "1st"
+						},
+						"2": {
+							"label": "2nd"
+						},
+						"3": {
+							"label": "3rd"
+						},
+						"4th": {
+							"label": "4th"
+						},
+						"5th": {
+							"label": "5th"
+						}
+					}
+				}
+			},
+			"ANVLARMMODEL": {
+				"FIELDS": {
+					"agility": {
+						"label": "Agility"
+					},
+					"stength": {
+						"label": "Strength"
+					},
+					"hardpoints": {
+						"label": "Hardpoints"
+					}
+				}
+			},
+			"ANVLGENERATORMODEL":{
+				"FIELDS": {
+					"enOuput": {
+						"label": "EN Output"
+					},
+					"enCapacity": {
+						"label": "EN Capacity"
+					},
+					"fuelCapacity": {
+						"label": "Fuel Capacity"
+					},
+					"heatTolerance": {
+						"label": "Heat Tolerance"
+					},
+					"chassisType": {
+						"label": "Chassis Type",
+						"CHOICES": {
+							"gas": "Brap",
+							"liquid": "Liquid",
+							"plasma": "Plasma"
+						}
+					}
+				}
+			},
+			"ANVLELECTRONICSMODEL":{
+				"FIELDS": {
+					"interceptBonus": {
+						"label": "Intercept Bonus"
+					},
+					"interceptCost": {
+						"label": "Intercept Cost"
+					},
+					"cameraModifier": {
+						"label": "Camera Modifier"
+					},
+					"refreshCost": {
+						"label": "Refresh Cost"
+					},
+					"hardwareType": {
+						"label": "Hardware Type",
+						"CHOICES": {
+							"efficient": "Efficient",
+							"gunheadKE": "Gunhead [KE]",
+							"gunheadCE": "Gunhead [CE]",
+							"gunheadTE": "Gunhead [TE]",
+							"hardened": "Hardened",
+							"lowProfile": "Low Profile",
+							"multiEye": "Multi-Eye",
+							"networkSiphon": "Network Syphon",
+							"quicklock": "Quicklock",
+							"rangefinder": "Rangefinder"
+						}
 					}
 				}
 			}
+		},
+		"Sheets": {
+			"Tabs": {
+				"properties": "Properties",
+				"details": "Details",
+				"items": "Items"
+			}
 		}
 	},
-	"TYPES":{
-		"Actor":{
-			"anvil": "Advanced Networked Vehicular Linkage (ANVL)"
+	"TYPES": {
+		"Actor": {
+			"anvil": "Advanced Networked Vehicular Linkage (ANVL)",
+			"vehicleConventional": "Conventional Vehicle (CV)"
+		},
+		"Item": {
+			"anvlCore": "ANVL Core",
+			"anvlMobilityBase": "ANVL Mobility Base",
+			"anvlArmLeft": "ANVL Left Arm",
+			"anvlArmRight": "ANVL Right Arm",
+			"anvlGenerator": "ANVL Generator",
+			"anvlElectronics": "ANVL Electronics"
 		}
 	}
 }

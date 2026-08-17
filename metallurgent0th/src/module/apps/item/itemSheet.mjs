@@ -31,7 +31,7 @@ export class muItemSheet extends api.HandlebarsApplicationMixin(
   /* -------------------------------------------------- */
   static TABS = {
     primary: {
-      tabs: [{ id: "properties" }, { id: "effects" }, { id: "details" }],
+      tabs: [{ id: "properties" }, { id: "details" }],
       initial: "properties",
       labelPrefix: "MU.Sheets.Tabs",
     },
@@ -51,8 +51,12 @@ export class muItemSheet extends api.HandlebarsApplicationMixin(
       template: systemPath("templates/shared/properties.hbs"),
       scrollable: [""],
     },
-    effects: {
-      template: systemPath("templates/shared/effects.hbs"),
+    // effects: {
+    //   template: systemPath("templates/shared/effects.hbs"),
+    //   scrollable: [""],
+    // },
+    details: {
+      template: systemPath("templates/shared/details.hbs"),
       scrollable: [""],
     },
   };
@@ -83,8 +87,6 @@ export class muItemSheet extends api.HandlebarsApplicationMixin(
       systemFields: this.item.system.schema.fields,
       config: CONFIG,
     });
-
-    console.log(this.item.system.schema.fields);
 
     return context;
   }

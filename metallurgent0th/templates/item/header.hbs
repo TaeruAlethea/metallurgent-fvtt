@@ -16,14 +16,10 @@
 		<div class="subDetails flexrow">
 		  {{#each systemFields.details.fields}}
 				{{#unless (eq this.name "description") }}
-					{{formGroup this value=value localize=true}}
+					{{formGroup this value=value localize=true hint=false}}
 				{{/unless}}
 			{{/each}}
 		</div>
-
-		  {{formGroup systemFields.details.fields.description
-  value=system.details.description}}
-
 	</div>
 </header>
 

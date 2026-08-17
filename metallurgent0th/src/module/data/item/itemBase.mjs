@@ -39,7 +39,7 @@ export default class muItemBaseModel extends muSystemModel {
         initial: 1,
         nullable: true,
       }),
-      description: new fields.StringField({
+      description: new fields.HTMLField({
         required: true,
         blank: true,
       }),

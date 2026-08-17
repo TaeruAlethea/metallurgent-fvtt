@@ -68,35 +68,30 @@ export class anvlCoreModel extends anvlComponentModel {
     return {
       ...super.defineSchema(),
       blockBonus: new NumberField({
-        label: localizeMU("stats.blockBonus"),
         required: true,
         integer: true,
         positive: true,
         initial: 1,
       }),
       blockCost: new NumberField({
-        label: localizeMU("stats.blockCost"),
         required: true,
         integer: true,
         positive: true,
         initial: 1,
       }),
       defenceValue: new NumberField({
-        label: localizeMU("stats.defenceValue"),
         required: true,
         integer: true,
         positive: true,
         initial: 1,
       }),
       criticalOutput: new NumberField({
-        label: localizeMU("stats.criticalOutput"),
         required: true,
         integer: true,
         positive: true,
         initial: 1,
       }),
       hardpoints: new NumberField({
-        label: localizeMU("stats.hardpoints"),
         required: true,
         integer: true,
         positive: true,
@@ -112,11 +107,10 @@ export class anvlMobilityBaseModel extends anvlComponentModel {
     "MU.ANVLCOMPONENTMODEL.ANVLMOBILITYBASEMODEL",
   ];
   static defineSchema() {
-    const localization_prefix = "MU.ANVLCOMPONENTMODEL.ANVLMOBILITYBASEMODEL";
+    // const localization_prefix = "MU.ANVLCOMPONENTMODEL.ANVLMOBILITYBASEMODEL";
     return {
       ...super.defineSchema(),
       dodgeBonus: new NumberField({
-        label: localizeMU("stats.dodgeBonus"),
         required: true,
         integer: true,
         positive: true,
@@ -150,14 +144,18 @@ export class anvlMobilityBaseModel extends anvlComponentModel {
         required: true,
         blank: false,
         initial: "biped",
-        choices: localizedSchemaChoices(localization_prefix, "chassisType", [
-          "biped",
-          "hover",
-          "quadruped",
-          "reverseJoint",
-          "tracked",
-          "wheeled",
-        ]),
+        choices: localizedSchemaChoices(
+          {
+            biped: "",
+            hover: "",
+            quadruped: "",
+            reverseJoint: "",
+            tracked: "",
+            wheeled: "",
+          },
+          "chassisType",
+          this,
+        ),
       }),
       loadTolerance: new SchemaField({
         1: new NumberField({
@@ -272,11 +270,15 @@ export class anvlGeneratorModel extends anvlComponentModel {
         required: true,
         blank: false,
         initial: "gas",
-        choices: {
-          gas: localizeMU("anvil.coolingTypes.gas"),
-          liquid: localizeMU("anvil.coolingTypes.liquid"),
-          plasma: localizeMU("anvil.coolingTypes.plasma"),
-        },
+        choices: localizedSchemaChoices(
+          {
+            gas: "",
+            liquid: "",
+            plasma: "",
+          },
+          "chassisType",
+          this,
+        ),
       }),
     };
   }
@@ -294,22 +296,26 @@ export class anvlElectronicsModel extends anvlComponentModel {
       interceptCost: new NumberField(),
       cameraModifier: new NumberField(),
       refreshCost: new NumberField(),
-      chassisType: new StringField({
+      hardwareType: new StringField({
         required: true,
         blank: false,
         initial: "efficient",
-        choices: {
-          efficient: localizeMU("anvil.hardwareTypes.efficient"),
-          gunheadKE: localizeMU("anvil.hardwareTypes.gunheadKE"),
-          gunheadCE: localizeMU("anvil.hardwareTypes.gunheadCE"),
-          gunheadTE: localizeMU("anvil.hardwareTypes.gunheadTE"),
-          hardened: localizeMU("anvil.hardwareTypes.hardened"),
-          lowProfile: localizeMU("anvil.hardwareTypes.lowProfile"),
-          multiEye: localizeMU("anvil.hardwareTypes.multiEye"),
-          networkSiphon: localizeMU("anvil.hardwareTypes.networkSiphon"),
-          quicklock: localizeMU("anvil.hardwareTypes.quicklock"),
-          rangefinder: localizeMU("anvil.hardwareTypes.rangefinder"),
-        },
+        choices: localizedSchemaChoices(
+          {
+            efficient: "",
+            gunheadKE: "",
+            gunheadCE: "",
+            gunheadTE: "",
+            hardened: "",
+            lowProfile: "",
+            multiEye: "",
+            networkSiphon: "",
+            quicklock: "",
+            rangefinder: "",
+          },
+          "hardwareType",
+          this,
+        ),
       }),
     };
   }

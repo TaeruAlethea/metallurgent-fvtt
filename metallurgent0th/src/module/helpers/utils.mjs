@@ -25,20 +25,15 @@ export function localizeMU(keyString) {
   return game.i18n.localize(`MU.${keyString}`);
 }
 
-export function localizedSchemaChoices(
-  localization_prefix,
-  field_name,
-  choices_array,
-) {
-  const localized_choices = {};
-  choices_array.forEach((choice) => {
-    const localization_string = localization_prefix.concat(
-      `.${field_name}.CHOICES.${choice}`,
-    );
-    localized_choices[choice] = game.i18n.localize(localization_string);
-  });
-
-  return localized_choices;
+export function localizedSchemaChoices(choices, field_name, model) {
+  return Object.fromEntries(
+    Object.entries(choices).map(([k, v]) => {
+      const newV = model.LOCALIZATION_PREFIXES.map(
+        (p) => `${p}.FIELDS.${field_name}.CHOICES.${v === "" ? k : v}`,
+      ).find((k) => foundry.utils.getProperty(game.i18n.translations, k));
+      return [k, newV ?? v];
+    }),
+  );
 }
 
 /* -------------------------------------------------- */
