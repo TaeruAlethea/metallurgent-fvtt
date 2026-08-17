@@ -44,8 +44,8 @@ Hooks.once("i18nInit", () => {
 });
 
 async function hitcheckCommand(command, match, chatData) {
-  console.log(command);
-  console.log(match);
+  // console.log(command);
+  // console.log(match);
 
   var par = match[1] ? Math.clamp(parseInt(match[1]), 1, 6) : 4;
   var qty = match[2] ? Math.clamp(parseInt(match[2]), 1, 25) : 6;
@@ -53,6 +53,11 @@ async function hitcheckCommand(command, match, chatData) {
 
   const attacks = await hitcheck(par, qty, burst);
   var message = "<div>";
+  if (game.user.targets?.first()?.document.name) {
+    message += `Attacking: ${game.user.targets.first().document.name} <br>`;
+  } else {
+    message += `Attacking: NO-TARGET <br>`;
+  }
 
   if (burst > 1) {
     message += `Par: ${par}, Qty: ${qty}, Burst: ${burst} <br>`;
@@ -62,12 +67,12 @@ async function hitcheckCommand(command, match, chatData) {
 
   attacks.forEach((attack, i, _) => {
     if (attack[0] > 0) {
-      console.log(
-        `Attack ${i + 1}: Successes: ${attack[0]}, Hit Location: ${attack[1]}`,
-      );
+      // console.log(
+      //   `Attack ${i + 1}: Successes: ${attack[0]}, Hit Location: ${attack[1]}`,
+      // );
       message += `Attack ${i + 1}: Successes: ${attack[0]}, Hit Location: ${attack[1]}`;
     } else {
-      console.log(`Attack ${i + 1}: failed.`);
+      // console.log(`Attack ${i + 1}: failed.`);
       message += `Attack ${i + 1}: failed.`;
     }
     message += "<br>";
@@ -77,9 +82,6 @@ async function hitcheckCommand(command, match, chatData) {
   const messageData = {
     content: message,
   };
-
-  console.log(command);
-  console.log(match);
 
   ChatMessage.implementation.create(messageData);
 
@@ -93,9 +95,9 @@ async function hitcheckCommand(command, match, chatData) {
  * @param {number} [burst=1] - How many over all attacks to execute
  */
 async function hitcheck(par = 4, qty = 6, burst = 1) {
-  console.debug(
-    `metallurgent | Hit Check: Par: ${par}, Qty: ${qty}, Burst: ${burst}`,
-  );
+  // console.debug(
+  //   `metallurgent | Hit Check: Par: ${par}, Qty: ${qty}, Burst: ${burst}`,
+  // );
   var attacks = [];
   for (let burstIndex = 0; burstIndex < burst; burstIndex++) {
     var successes = 0;
