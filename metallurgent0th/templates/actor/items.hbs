@@ -3,7 +3,9 @@
   data-group="primary"
   data-tab="items"
 >
-  {{#each actor.items}}
-  <li data-item-id="{{id}}">{{name}}</li>
-  {{/each}}
+  <ul>
+    {{#each actor.items}}
+    <li data-item-id="{{id}}">{{name}}</li>
+    {{/each}}
+  </ul>
 </section>

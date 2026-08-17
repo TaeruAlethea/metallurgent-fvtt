@@ -80,7 +80,46 @@ export class muActorSheet extends api.HandlebarsApplicationMixin(
       config: CONFIG,
     });
 
+    console.log(this.actor);
+
     return context;
+  }
+
+  /* -------------------------------------------------- */
+
+  /** @inheritdoc */
+  async _preparePartContext(partId, context) {
+    switch (partId) {
+      // case "properties":
+      //   context.fields = await this._getFields();
+      //   context.tab = context.tabs[partId];
+      //   break;
+      case "items":
+        context.itemTypes = this._getItems();
+        context.tab = context.tabs[partId];
+        break;
+    }
+    return context;
+  }
+
+  /**
+   * Adapted from Actor#itemTypes.
+   */
+  _getItems() {
+    const types = Object.fromEntries(
+      game.documentTypes.Item.map((t) => {
+        return [
+          t,
+          { label: game.i18n.localize(CONFIG.Item.typeLabels[t]), items: [] },
+        ];
+      }),
+    );
+    for (const item of this.actor.items) {
+      types[item.type].items.push(item);
+    }
+    // Only show Base if it's actually being used
+    if (types.base.items.length === 0) delete types.base;
+    return types;
   }
 
   /**
