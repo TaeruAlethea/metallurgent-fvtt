@@ -12,3 +12,4 @@ node_modules/
 **/*.map
 **/_dts
 /.typescript
+/doc
