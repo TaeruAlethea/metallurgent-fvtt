@@ -47,5 +47,8 @@
   },
   "dependencies": {
     "onchange": "^7.1.0"
+  },
+  "allowScripts": {
+    "dprint@0.55.2": true
   }
 }
