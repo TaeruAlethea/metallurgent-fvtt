@@ -3,5 +3,6 @@ foundry/*
 # Node Modules
 node_modules/
 
+**/*.mts
 **/*.map
 /doc
