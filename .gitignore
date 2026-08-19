@@ -1,16 +1,7 @@
 foundry/*
-.tsvoid
-out
-doc/api/*
-tsconfig.json
-jsconfig.json
 
 # Node Modules
 node_modules/
 
-
 **/*.map
-**/_dts
-/.typescript
 /doc
-/docs
