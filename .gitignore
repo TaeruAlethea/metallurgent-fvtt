@@ -13,3 +13,4 @@ node_modules/
 **/_dts
 /.typescript
 /doc
+/docs
