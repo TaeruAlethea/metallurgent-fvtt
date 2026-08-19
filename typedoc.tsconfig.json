@@ -1,9 +1,0 @@
-{
-  "extends": "./metallurgent0th/tsconfig.json",
-  "compilerOptions": {
-    "composite": false,
-    "declaration": false,
-    "declarationMap": false
-  },
-  "include": ["metallurgent0th/**/*.*"]
-}
