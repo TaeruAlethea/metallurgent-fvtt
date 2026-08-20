@@ -1,7 +1,8 @@
 import muItemBaseModel from "./itemBase.mjs";
 import { localizedSchemaChoices } from "../../helpers/utils.mjs";
 
-const { NumberField, SchemaField, StringField } = foundry.data.fields;
+const { NumberField, SchemaField, StringField, BooleanField } =
+  foundry.data.fields;
 
 export class anvlComponentModel extends muItemBaseModel {
   static LOCALIZATION_PREFIXES = [
@@ -17,7 +18,31 @@ export class anvlComponentModel extends muItemBaseModel {
   static defineSchema() {
     return {
       ...super.defineSchema(),
-      armorPoints: new NumberField({
+      isEnabled: BooleanField({
+        required: true,
+        initial: true,
+      }),
+      status: StringField({
+        required: true,
+        blank: false,
+        initial: "nominal",
+        choices: localizedSchemaChoices(
+          {
+            nominal: "",
+            damaged: "",
+            degraded: "",
+            disabled: "",
+            destroyed: "",
+          },
+          "status",
+          this,
+        ),
+      }),
+      armorPointsCurrent: NumberField({
+        required: false,
+        integer: true,
+      }),
+      armorPointsMax: new NumberField({
         required: true,
         integer: true,
         positive: true,
