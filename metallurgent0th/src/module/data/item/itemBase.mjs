@@ -1,4 +1,3 @@
-// import { localizeMU } from "../../helpers/utils.mjs";
 import muSystemModel from "../systemBase.mjs";
 
 const fields = foundry.data.fields;

@@ -1,5 +1,5 @@
 import {
-  anvlComponentModel as anvlComponentModel,
+  anvlComponentBaseModel as anvlComponentBaseModel,
   anvlCoreModel as anvlCoreModel,
   anvlMobilityBaseModel as anvlMobilityBaseModel,
   anvlArmLeftModel as anvlArmLeftModel,
@@ -10,7 +10,8 @@ import {
 import { default as muItemBaseModel } from "./itemBase.mjs";
 
 const config = {
-  component: anvlComponentModel,
+  // Item Type: Data Model
+  anvlComponent: anvlComponentBaseModel,
   anvlCore: anvlCoreModel,
   anvlMobilityBase: anvlMobilityBaseModel,
   anvlArmLeft: anvlArmLeftModel,
@@ -20,7 +21,7 @@ const config = {
 };
 
 export {
-  anvlComponentModel,
+  anvlComponentBaseModel,
   anvlCoreModel,
   anvlMobilityBaseModel,
   anvlArmLeftModel,

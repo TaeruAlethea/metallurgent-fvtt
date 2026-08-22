@@ -4,10 +4,10 @@ import { localizedSchemaChoices } from "../../helpers/utils.mjs";
 const { NumberField, SchemaField, StringField, BooleanField } =
   foundry.data.fields;
 
-export class anvlComponentModel extends muItemBaseModel {
+export class anvlComponentBaseModel extends muItemBaseModel {
   static LOCALIZATION_PREFIXES = [
     ...super.LOCALIZATION_PREFIXES,
-    "MU.ANVLCOMPONENTMODEL",
+    "MU.ANVL.COMPONENTBASEMODEL",
   ];
   static metadata = Object.freeze({
     SubtypeMetadata: {
@@ -18,11 +18,11 @@ export class anvlComponentModel extends muItemBaseModel {
   static defineSchema() {
     return {
       ...super.defineSchema(),
-      isEnabled: BooleanField({
+      isEnabled: new BooleanField({
         required: true,
         initial: true,
       }),
-      status: StringField({
+      status: new StringField({
         required: true,
         blank: false,
         initial: "nominal",
@@ -38,7 +38,7 @@ export class anvlComponentModel extends muItemBaseModel {
           this,
         ),
       }),
-      armorPointsCurrent: NumberField({
+      armorPointsCurrent: new NumberField({
         required: false,
         integer: true,
       }),
@@ -84,10 +84,10 @@ export class anvlComponentModel extends muItemBaseModel {
   }
 }
 
-export class anvlCoreModel extends anvlComponentModel {
+export class anvlCoreModel extends anvlComponentBaseModel {
   static LOCALIZATION_PREFIXES = [
     ...super.LOCALIZATION_PREFIXES,
-    "MU.ANVLCOMPONENTMODEL.ANVLCOREMODEL",
+    "MU.ANVL.COREMODEL",
   ];
   static defineSchema() {
     return {
@@ -126,13 +126,12 @@ export class anvlCoreModel extends anvlComponentModel {
   }
 }
 
-export class anvlMobilityBaseModel extends anvlComponentModel {
+export class anvlMobilityBaseModel extends anvlComponentBaseModel {
   static LOCALIZATION_PREFIXES = [
     ...super.LOCALIZATION_PREFIXES,
-    "MU.ANVLCOMPONENTMODEL.ANVLMOBILITYBASEMODEL",
+    "MU.ANVL.MOBILITYBASEMODEL",
   ];
   static defineSchema() {
-    // const localization_prefix = "MU.ANVLCOMPONENTMODEL.ANVLMOBILITYBASEMODEL";
     return {
       ...super.defineSchema(),
       dodgeBonus: new NumberField({
@@ -183,31 +182,31 @@ export class anvlMobilityBaseModel extends anvlComponentModel {
         ),
       }),
       loadTolerance: new SchemaField({
-        1: new NumberField({
+        first: new NumberField({
           required: true,
           integer: true,
           positive: true,
           initial: 1,
         }),
-        2: new NumberField({
+        second: new NumberField({
           required: true,
           integer: true,
           positive: true,
           initial: 1,
         }),
-        3: new NumberField({
+        third: new NumberField({
           required: true,
           integer: true,
           positive: true,
           initial: 1,
         }),
-        4: new NumberField({
+        fourth: new NumberField({
           required: true,
           integer: true,
           positive: true,
           initial: 1,
         }),
-        5: new NumberField({
+        fifth: new NumberField({
           required: true,
           integer: true,
           positive: true,
@@ -218,10 +217,10 @@ export class anvlMobilityBaseModel extends anvlComponentModel {
   }
 }
 
-export class anvlArmLeftModel extends anvlComponentModel {
+export class anvlArmLeftModel extends anvlComponentBaseModel {
   static LOCALIZATION_PREFIXES = [
     ...super.LOCALIZATION_PREFIXES,
-    "MU.ANVLCOMPONENTMODEL.ANVLARMMODEL",
+    "MU.ANVL.ARMMODEL",
   ];
   static defineSchema() {
     return {
@@ -248,10 +247,10 @@ export class anvlArmLeftModel extends anvlComponentModel {
   }
 }
 
-export class anvlArmRightModel extends anvlComponentModel {
+export class anvlArmRightModel extends anvlComponentBaseModel {
   static LOCALIZATION_PREFIXES = [
     ...super.LOCALIZATION_PREFIXES,
-    "MU.ANVLCOMPONENTMODEL.ANVLARMMODEL",
+    "MU.ANVL.ARMMODEL",
   ];
   static defineSchema() {
     return {
@@ -278,20 +277,45 @@ export class anvlArmRightModel extends anvlComponentModel {
   }
 }
 
-export class anvlGeneratorModel extends anvlComponentModel {
+export class anvlGeneratorModel extends anvlComponentBaseModel {
   static LOCALIZATION_PREFIXES = [
     ...super.LOCALIZATION_PREFIXES,
-    "MU.ANVLCOMPONENTMODEL.ANVLGENERATORMODEL",
+    "MU.ANVL.GENERATORMODEL",
   ];
   static defineSchema() {
     return {
       ...super.defineSchema(),
-      enOutput: new NumberField(),
-      enCapacity: new NumberField(),
-      fuelCapacity: new NumberField(),
-      chargeCapacity: new NumberField(),
-      heatTolerance: new NumberField(),
-      chassisType: new StringField({
+      enOutput: new NumberField({
+        required: true,
+        integer: true,
+        positive: false,
+        initial: 1,
+      }),
+      enCapacity: new NumberField({
+        required: true,
+        integer: true,
+        positive: false,
+        initial: 1,
+      }),
+      fuelCapacity: new NumberField({
+        required: true,
+        integer: true,
+        positive: false,
+        initial: 1,
+      }),
+      chargeCapacity: new NumberField({
+        required: true,
+        integer: true,
+        positive: false,
+        initial: 1,
+      }),
+      heatTolerance: new NumberField({
+        required: true,
+        integer: true,
+        positive: false,
+        initial: 1,
+      }),
+      coolingType: new StringField({
         required: true,
         blank: false,
         initial: "gas",
@@ -301,7 +325,7 @@ export class anvlGeneratorModel extends anvlComponentModel {
             liquid: "",
             plasma: "",
           },
-          "chassisType",
+          "coolingType",
           this,
         ),
       }),
@@ -309,18 +333,38 @@ export class anvlGeneratorModel extends anvlComponentModel {
   }
 }
 
-export class anvlElectronicsModel extends anvlComponentModel {
+export class anvlElectronicsModel extends anvlComponentBaseModel {
   static LOCALIZATION_PREFIXES = [
     ...super.LOCALIZATION_PREFIXES,
-    "MU.ANVLCOMPONENTMODEL.ANVLELECTRONICSMODEL",
+    "MU.ANVL.ELECTRONICSMODEL",
   ];
   static defineSchema() {
     return {
       ...super.defineSchema(),
-      interceptBonus: new NumberField(),
-      interceptCost: new NumberField(),
-      cameraModifier: new NumberField(),
-      refreshCost: new NumberField(),
+      interceptBonus: new NumberField({
+        required: true,
+        integer: true,
+        positive: false,
+        initial: 1,
+      }),
+      interceptCost: new NumberField({
+        required: true,
+        integer: true,
+        positive: false,
+        initial: 1,
+      }),
+      cameraModifier: new NumberField({
+        required: true,
+        integer: true,
+        positive: false,
+        initial: 1,
+      }),
+      refreshCost: new NumberField({
+        required: true,
+        integer: true,
+        positive: false,
+        initial: 1,
+      }),
       hardwareType: new StringField({
         required: true,
         blank: false,

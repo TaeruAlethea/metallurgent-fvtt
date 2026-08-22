@@ -1,0 +1,21 @@
+<section
+  class="standard-form tab scrollable {{tab.cssClass}}"
+  data-group="primary"
+  data-tab="anvlComponentAttributes"
+>
+  <div class="flexcolumn">
+    {{formGroup systemFields.armorPointsMax value=system.armorPointsMax
+    localize=true}}
+    <fieldset>
+      <legend>{{localize systemFields.resistance.label}}</legend>
+      {{localize systemFields.resistance.hint}} {{formGroup
+      systemFields.resistance.fields.kenetic value=system.resistance.kenetic
+      localize=true}} {{formGroup systemFields.resistance.fields.chemical
+      value=system.resistance.chemical localize=true}}{{formGroup
+      systemFields.resistance.fields.thermal value=system.resistance.thermal
+      localize=true}}
+    </fieldset>
+    {{formGroup systemFields.load value=system.load localize=true}} {{formGroup
+    systemFields.energyDrain value=system.energyDrain localize=true}}
+  </div>
+</section>

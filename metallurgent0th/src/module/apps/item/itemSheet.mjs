@@ -1,4 +1,3 @@
-import { prepareActiveEffectCategories } from "../../helpers/utils.mjs";
 import { systemPath } from "../../constants.mjs";
 
 const { api, sheets } = foundry.applications;
@@ -22,14 +21,7 @@ export class muItemSheet extends api.HandlebarsApplicationMixin(
     },
     dragDrop: [{ dragSelector: ".draggable", dropSelector: null }],
   };
-  /* -------------------------------------------------- */
-  static TABS = {
-    primary: {
-      tabs: [{ id: "anvlComponent" }, { id: "details" }],
-      initial: "anvlComponent",
-      labelPrefix: "MU.Sheets.Tabs",
-    },
-  };
+
   /* -------------------------------------------------- */
 
   /** @inheritdoc */
@@ -41,14 +33,8 @@ export class muItemSheet extends api.HandlebarsApplicationMixin(
       // Foundry generic template
       template: "templates/generic/tab-navigation.hbs",
     },
-    anvlComponent: {
-      template: systemPath("templates/shared/anvlComponent.hbs"),
-    },
-    details: {
-      template: systemPath("templates/shared/details.hbs"),
-      scrollable: [""],
-    },
   };
+
   /* -------------------------------------------------- */
 
   /** @inheritdoc */
@@ -59,6 +45,7 @@ export class muItemSheet extends api.HandlebarsApplicationMixin(
 
     return initialized;
   }
+
   /* -------------------------------------------------- */
 
   /** @inheritdoc */
@@ -78,10 +65,11 @@ export class muItemSheet extends api.HandlebarsApplicationMixin(
     });
 
     // console.log(this.item.system);
-    // console.log(this.item.schema.fields);
+    // console.log(this.item.system.schema.fields);
 
     return context;
   }
+
   /* -------------------------------------------------- */
 
   /** @inheritdoc */
@@ -89,12 +77,8 @@ export class muItemSheet extends api.HandlebarsApplicationMixin(
     switch (partId) {
       case "header":
         break;
-      case "anvlComponent":
+      default:
         context.tab = context.tabs[partId];
-        break;
-      case "details":
-        context.tab = context.tabs[partId];
-        break;
     }
     return context;
   }

@@ -20,14 +20,13 @@ Hooks.once("init", () => {
     },
   );
 
-  foundry.documents.collections.Items.registerSheet(
-    "MU",
-    Module.Apps.Item.muItemSheet,
-    {
+  for (const [key, value] of Object.entries(Module.Apps.Item.config)) {
+    foundry.documents.collections.Items.registerSheet("MU", value, {
+      types: [`${key}`],
       makeDefault: true,
-      label: "MU.Sheets.Labels.ItemSheet",
-    },
-  );
+      label: `MU.Sheets.Labels.${key}`,
+    });
+  }
 
   CONFIG.ui.chat.CHAT_COMMANDS.hitcheck = {
     rgx: /(?:hitcheck) ?(\d*) ?(\d*) ?(\d*)/,

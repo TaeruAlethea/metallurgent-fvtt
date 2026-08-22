@@ -50,6 +50,7 @@
 			"vehicleConventional":{}
 		},
 		"Item": {
+			"anvlComponent": {},
 			"anvlCore": {},
 			"anvlMobilityBase": {},
 			"anvlArmLeft": {},

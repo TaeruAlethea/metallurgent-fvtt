@@ -1,0 +1,27 @@
+<section
+  class="standard-form tab scrollable {{tab.cssClass}}"
+  data-group="primary"
+  data-tab="componentAttributes"
+>
+  <div class="flexcolumn">
+    {{formGroup systemFields.dodgeBonus value=system.dodgeBonus localize=true}}
+    {{formGroup systemFields.dodgeCost value=system.dodgeCost localize=true}}
+    {{formGroup systemFields.speed value=system.speed localize=true}}
+    {{formGroup systemFields.manoeuvreCost value=system.manoeuvreCost
+    localize=true}} {{formGroup systemFields.initiative value=system.initiative
+    localize=true}} {{formGroup systemFields.chassisType
+    value=system.chassisType localize=true}}
+    <fieldset>
+      <legend>{{localize systemFields.loadTolerance.label}}</legend>
+      {{localize systemFields.loadTolerance.hint}} {{formGroup
+      systemFields.loadTolerance.fields.first value=system.loadTolerance.first
+      localize=true}} {{formGroup systemFields.loadTolerance.fields.second
+      value=system.loadTolerance.second localize=true}} {{formGroup
+      systemFields.loadTolerance.fields.third value=system.loadTolerance.third
+      localize=true}} {{formGroup systemFields.loadTolerance.fields.fourth
+      value=system.loadTolerance.fourth localize=true}} {{formGroup
+      systemFields.loadTolerance.fields.fifth value=system.loadTolerance.fifth
+      localize=true}}
+    </fieldset>
+  </div>
+</section>
