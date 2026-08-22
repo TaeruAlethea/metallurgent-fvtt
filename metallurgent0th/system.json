@@ -56,7 +56,8 @@
 			"anvlArmLeft": {},
 			"anvlArmRight": {},
 			"anvlGenerator": {},
-			"anvlElectronics": {}
+			"anvlElectronics": {},
+			"fireControlSystem": {}
 		}
 	}
 }

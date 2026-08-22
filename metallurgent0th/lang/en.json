@@ -226,6 +226,30 @@
 				}
 			}
 		},
+		"FIRECONTROLSYSTEMMODEL": {
+			"FIELDS": {
+				"enDrain": {
+					"label": "EN Drain"
+				},
+				"rangeInner": {
+					"label": "Inner Range"
+				},
+				"rangeOuter": {
+					"label": "Outer Range"
+				},
+				"targetingType": {
+					"label": "Targetting Type",
+					"CHOICES": {
+						"ewacs": "EWACS",
+						"infrared": "Infrared",
+						"laser": "Laser",
+						"optical": "Optical",
+						"spotting": "Spotting",
+						"tracking": "Tracking"
+					}
+				}
+			}
+		},
 		"Sheets": {
 			"Labels": {
 				"anvlComponent": "ANVL Component Sheet",
@@ -239,6 +263,7 @@
 			"Tabs": {
 				"anvlComponentAttributes": "ANVL Attributes",
 				"componentAttributes": "Component Attributes",
+				"fireControlAttributes": "System Attributes",
 				"description": "Description",
 				"properties": "Properties",
 				"details": "Details",
@@ -258,7 +283,8 @@
 			"anvlArmLeft": "ANVL Left Arm",
 			"anvlArmRight": "ANVL Right Arm",
 			"anvlGenerator": "ANVL Generator",
-			"anvlElectronics": "ANVL Electronics"
+			"anvlElectronics": "ANVL Electronics",
+			"fireControlSystem": "Fire Control System"
 		}
 	}
 }

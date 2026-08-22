@@ -1,8 +1,6 @@
 import { systemPath } from "../../constants.mjs";
 import { muItemSheet } from "./itemSheet.mjs";
 
-const { api, sheets } = foundry.applications;
-
 class muAnvlComponentSheet extends muItemSheet {
   /** @inheritdoc */
   static TABS = {

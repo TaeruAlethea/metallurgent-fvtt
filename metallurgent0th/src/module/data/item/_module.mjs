@@ -8,6 +8,7 @@ import {
   anvlElectronicsModel as anvlElectronicsModel,
 } from "./anvilComponents.mjs";
 import { default as muItemBaseModel } from "./itemBase.mjs";
+import { fireControlSystemModel as fireControlSystemModel } from "./fireControlSystem.mjs";
 
 const config = {
   // Item Type: Data Model
@@ -18,6 +19,7 @@ const config = {
   anvlArmRight: anvlArmRightModel,
   anvlGenerator: anvlGeneratorModel,
   anvlElectronics: anvlElectronicsModel,
+  fireControlSystem: fireControlSystemModel,
 };
 
 export {
@@ -28,6 +30,7 @@ export {
   anvlArmRightModel,
   anvlGeneratorModel,
   anvlElectronicsModel,
+  fireControlSystemModel,
   muItemBaseModel,
   config,
 };

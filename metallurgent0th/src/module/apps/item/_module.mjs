@@ -6,6 +6,7 @@ import {
   muAnvlGeneratorSheet as muAnvlGeneratorSheet,
   muAnvlElectronicsSheet as muAnvlElectronicsSheet,
 } from "./anvlSheets.mjs";
+import { muFireControlSystem } from "./fireControlSystem.mjs";
 import { muItemSheet } from "./itemSheet.mjs";
 
 const config = {
@@ -17,6 +18,7 @@ const config = {
   anvlArmRight: muAnvlArmRightSheet,
   anvlGenerator: muAnvlGeneratorSheet,
   anvlElectronics: muAnvlElectronicsSheet,
+  fireControlSystem: muFireControlSystem,
 };
 
 export {
@@ -27,5 +29,6 @@ export {
   muAnvlArmRightSheet,
   muAnvlGeneratorSheet,
   muAnvlElectronicsSheet,
+  muFireControlSystem,
   config,
 };
