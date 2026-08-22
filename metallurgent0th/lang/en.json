@@ -1,89 +1,6 @@
 {
 	"MU":{
 		"systemName": "Metallurgent",
-		"stats":{
-			"armorPoints": "AP",
-			"armorPointsLong": "Armor Points",
-			"resistance": "Resistance",
-			"resistances":{
- 				"kenetic": "KE",
-				"keneticLong": "Kenetic Energy",
-				"chemical": "CE",
-				"chemicalLong":"Chemical Energy",
-				"thermal": "TE",
-				"thermalLong": "Thermal Energy"
-			},
-			"load": "Load",
-			"energyDrain": "EN Drain",
-			"energyDrainLong": "Energy Drain",
-			"blockBonus": "Block Bonus",
-			"blockCost": "Block Cost",
-			"defenceValue": "Defence Value",
-			"criticalOutput": "Critical Output",
-			"hardpoints": "Hardpoints",
-			"dodgeBonus": "Dodge Bonus",
-			"dodgeCost": "Dodge Cost",
-			"speed": "Speed",
-			"manoeuvreCost": "Manoeuvre Cost",
-			"initiative": "Initiative",
-			"chassisType": "ChassisType",
-			"Component Cost": "Component Cost",
-			"Description": "Description"
-		},
-		"anvil":{
-			"anvil": "ANVL",
-			"anvilLong": "Anvil",
-			"anvilComponent": "Anvil Component",
-			"componentPlural": "Components",
-			"components": {
-				"core": "Core",
-				"mobilityBase": "Mobility Base",
-				"armLeft": "Left Arm",
-				"armRight": "Right Arm",
-				"generator": "Generator",
-				"electronics": "Electronics",
-				"fireControl": "Fire Control"
-			},
-			"mobilityBaseTypes": {
-				"biped": "Biped",
-				"hover": "Hover",
-				"quadruped": "Quadruped",
-				"reverseJoint": "Reverse-Joint",
-				"tracked": "Tracked",
-				"wheeled": "Wheeled"
-			},
-			"coolingTypes": {
-				"gas": "Brap",
-				"liquid": "Liquid",
-				"plasma": "Plasma"
-			},
-			"hardwareTypes": {
-				"efficient": "Efficient",
-				"gunheadKE": "Gunhead [KE]",
-				"gunheadCE": "Gunhead [CE]",
-				"gunheadTE": "Gunhead [TE]",
-				"hardened": "Hardened",
-				"lowProfile": "Low Profile",
-				"multiEye": "Multi-Eye",
-				"networkSiphon": "Network Syphon",
-				"quicklock": "Quicklock",
-				"rangefinder": "Rangefinder"
-			}
-		},
-		"general":{
-			"details": "Details",
-			"1st": "1st",
-			"2nd": "2nd",
-			"3rd": "3rd",
-			"4th": "4th",
-			"5th": "5th",
-			"costUnit": "Cost, Unit",
-			"costBulk": "Cost, Bulk",
-			"description": "Description",
-			"origin": "Origin",
-			"manufacturer": "Manufacturer",
-			"introductionYear": "Intro. Year"
-		},
 		"MUITEMBASEMODEL":{
 			"FIELDS":{
 				"details":{
@@ -112,14 +29,15 @@
 				}
 			}
 		},
-		"ANVLCOMPONENTMODEL":{
+		"ANVLCOMPONENTBASEMODEL":{
 			"FIELDS": {
-				"armorPoints": {
-					"label": "AP",
-					"hint": "Armor Points"
+				"armorPointsMax": {
+					"label": "AP, Max",
+					"hint": "The Maxiumum Armor Points this component can have."
 				},
 				"resistance": {
 					"label": "Resistances",
+					"hint": "hint text that describes what Resistances as a whole are should go here.",
 					"kenetic": {
 						"label": "Kenetic"
 					},
@@ -137,17 +55,57 @@
 				"energyDrain":{
 					"label": "Energy Drain"
 				}
-			},
-			"ANVLCOREMODEL": {
+			}
+		},
+		"ANVL": {
+			"COMPONENTBASEMODEL":{
 				"FIELDS": {
-					"blockBonus": "Block Bonus",
-					"blockCost": "Block Cost",
-					"defenceValue": "Defence Value",
-					"criticalOutput": "Critical Output",
-					"hardpoints": "Hardpoints"
+					"armorPointsMax": {
+						"label": "AP, Max",
+						"hint": "The Maxiumum Armor Points this component can have."
+					},
+					"resistance": {
+						"label": "Resistances",
+						"hint": "hint text that describes what Resistances as a whole are should go here.",
+						"kenetic": {
+							"label": "Kenetic"
+						},
+						"chemical": {
+							"label": "Chemical"
+						},
+						"thermal": {
+							"label": "Thermal"
+						}
+					},
+					"load": {
+						"label": "Load",
+						"hint": "The \"weight\" the component."
+					},
+					"energyDrain":{
+						"label": "Energy Drain"
+					}
 				}
 			},
-			"ANVLMOBILITYBASEMODEL": {
+			"COREMODEL": {
+				"FIELDS": {
+					"blockBonus": {
+						"label": "Block Bonus"
+					},
+					"blockCost": {
+						"label": "Block Cost"
+					},
+					"defenceValue": {
+						"label": "Defence Value"
+					},
+					"criticalOutput": {
+						"label": "Critical Output"
+					},
+					"hardpoints": {
+						"label": "Hardpoints"
+					}
+				}
+			},
+			"MOBILITYBASEMODEL": {
 				"FIELDS": {
 					"dodgeBonus": {
 						"label": "Dodge Bonus"
@@ -178,25 +136,25 @@
 					"loadTolerance": {
 						"label": "Load Tolerance",
 						"hint": "How much Load can be handled at a given stage",
-						"1": {
-							"label": "1st"
+						"first": {
+							"label": "1st Step"
 						},
-						"2": {
-							"label": "2nd"
+						"second": {
+							"label": "2nd Step"
 						},
-						"3": {
-							"label": "3rd"
+						"third": {
+							"label": "3rd Step"
 						},
-						"4th": {
-							"label": "4th"
+						"fourth": {
+							"label": "4th Step"
 						},
-						"5th": {
-							"label": "5th"
+						"fifth": {
+							"label": "5th Step"
 						}
 					}
 				}
 			},
-			"ANVLARMMODEL": {
+			"ARMMODEL": {
 				"FIELDS": {
 					"agility": {
 						"label": "Agility"
@@ -209,9 +167,9 @@
 					}
 				}
 			},
-			"ANVLGENERATORMODEL":{
+			"GENERATORMODEL":{
 				"FIELDS": {
-					"enOuput": {
+					"enOutput": {
 						"label": "EN Output"
 					},
 					"enCapacity": {
@@ -220,10 +178,13 @@
 					"fuelCapacity": {
 						"label": "Fuel Capacity"
 					},
+					"chargeCapacity": {
+						"label": "Charge Capacity"
+					},
 					"heatTolerance": {
 						"label": "Heat Tolerance"
 					},
-					"chassisType": {
+					"coolingType": {
 						"label": "Chassis Type",
 						"CHOICES": {
 							"gas": "Brap",
@@ -233,7 +194,7 @@
 					}
 				}
 			},
-			"ANVLELECTRONICSMODEL":{
+			"ELECTRONICSMODEL":{
 				"FIELDS": {
 					"interceptBonus": {
 						"label": "Intercept Bonus"
@@ -266,7 +227,19 @@
 			}
 		},
 		"Sheets": {
+			"Labels": {
+				"anvlComponent": "ANVL Component Sheet",
+				"anvlCore": "ANVL Core Sheet",
+				"anvlMobilityBase": "ANVL Mobility Base Sheet",
+				"anvlArmLeft": "ANVL Left Arm Sheet",
+				"anvlArmRight": "ANVL Right Arm Sheet",
+				"anvlGenerator": "ANVL Generator Sheet",
+				"anvlElectronics": "ANVL Electronics Sheet"
+			},
 			"Tabs": {
+				"anvlComponentAttributes": "ANVL Attributes",
+				"componentAttributes": "Component Attributes",
+				"description": "Description",
 				"properties": "Properties",
 				"details": "Details",
 				"items": "Items"
@@ -279,6 +252,7 @@
 			"vehicleConventional": "Conventional Vehicle (CV)"
 		},
 		"Item": {
+			"anvlComponent": "ANVL Component",
 			"anvlCore": "ANVL Core",
 			"anvlMobilityBase": "ANVL Mobility Base",
 			"anvlArmLeft": "ANVL Left Arm",
