@@ -48,7 +48,7 @@ jobs:
       - name: Build All
         run: |
           npm run prepareRelease
-          mv --force LICENSE metallurgent0th/LICENSE
+          mv --force LICENSE.md metallurgent0th/LICENSE.md
 
       # Create zip file.
       - name: Create ZIP archive
